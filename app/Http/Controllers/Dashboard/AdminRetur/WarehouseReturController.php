@@ -33,10 +33,10 @@ class WarehouseReturController extends Controller
     public function store(AdminReturRequest $request) : RedirectResponse
     {
         return $this->userManajementService->createUser(
-            request: $request, 
+            request: $request,
             roleName: 'warehouse-retur',
             message: 'Warehouse Retur',
-            redirectRouteName: 'warehouse-retur.index'
+            redirectRouteName: 'admin.warehouse-retur.index'
         );
     }
 
@@ -58,7 +58,7 @@ class WarehouseReturController extends Controller
             request: $request,
             user: $user,
             message: 'Warehouse Retur',
-            redirectRouteName: 'warehouse-retur.index'
+            redirectRouteName: 'admin.warehouse-retur.index'
         );
     }
 
@@ -67,7 +67,7 @@ class WarehouseReturController extends Controller
         return $this->userManajementService->destroyUser(
             user: $user,
             message: 'Warehouse Retur',
-            redirectRouteName: 'warehouse-retur.index'
+            redirectRouteName: 'admin.warehouse-retur.index'
         );
     }
 }

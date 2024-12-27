@@ -1,7 +1,7 @@
 .<x-dashboard.app title="Ubah Warehouse Asistent">
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Ubah WareHouse Asistent</h3>
+          <h3 class="my-2">Ubah Warehouse Asistent</h3>
       </div>
   </x-slot:header>
 
@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                      <form action="{{ route('warehouse-asistent.update', $user) }}" method="post" enctype="multipart/form-data">
+                      <form action="{{ route('admin.warehouse-asistent.update', $user) }}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                         <div class="row">

@@ -20,7 +20,7 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('admin-retur.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
+                          <a href="{{ route('admin.admin-retur.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
 
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">
@@ -45,32 +45,32 @@
                                           <td>{{ $user->created_at }}</td>
                                           <td>{{ $user->updated_at }}</td>
                                           <td>
-                                            <form id="form-delete-admin-retur"  action="{{ route('admin-retur.destroy', $user) }}" method="post">
+                                            <form id="form-delete"  action="{{ route('admin.admin-retur.destroy', $user) }}" method="post">
                                               @method('delete')
                                               @csrf
-                                              <button id="button-info-admin-retur" class="btn btn-info rounded-4" type="button" data-url="{{ route('admin-retur.show', $user) }}">
+                                              <button id="button-info" class="btn btn-info rounded-4" type="button" data-url="{{ route('admin.admin-retur.show', $user) }}">
                                                 <i class="fa-solid fa-info"></i>
                                               </button>
-                                              <a href="{{ route('admin-retur.edit', $user) }}" class="btn icon btn-warning text-white rounded-4">
+                                              <a href="{{ route('admin.admin-retur.edit', $user) }}" class="btn icon btn-warning text-white rounded-4">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                               </a>
-                                              <button id="button-delete-admin-retur" class="btn btn-danger rounded-4" type="button">
+                                              <button id="button-delete" class="btn btn-danger rounded-4" type="button">
                                                 <i class="fa-solid fa-trash-can"></i>
                                               </button>
                                             </form>
                                           </td>
-                                      </tr>    
+                                      </tr>
                                     @endforeach
                                   </tbody>
                               </table>
                           </div>
 
                         <x-dashboard.modal.moda-borderles
-                          id="show-modal-admin-retur"
+                          id="show-modal"
                           title="Info Admin Retur"
                           size="medium"
                           >
-                          <div class="modal-body" id="modal-body-admin-retur">
+                          <div class="modal-body" id="modal-body-information">
 
                           </div>
                           <div class="modal-footer">
@@ -90,7 +90,7 @@
     <script src="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>>
 
     {{-- ? my script --}}
-    <script src="{{ asset('js/admin-retur.js') }}"></script>
+    <script type="module" src="{{ asset('js/userManajement.js') }}"></script>
 
   </x-slot:scriptOptional>
 </x-dashboard.app>

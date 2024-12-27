@@ -12,7 +12,7 @@ class AdminReturRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->user()->hasRole('admin-retur');
+        return true;
     }
 
     /**

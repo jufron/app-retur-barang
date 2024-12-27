@@ -1,7 +1,7 @@
-<x-dashboard.app title="admin retur dashboard">
+<x-dashboard.app title="Tambah Warehouse Asistent">
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Tambah Admin Retur</h3>
+          <h3 class="my-2">Tambah User Logistik</h3>
       </div>
   </x-slot:header>
 
@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                      <form action="{{ route('admin.admin-retur.store') }}" method="post" enctype="multipart/form-data">
+                      <form action="{{ route('admin.logistik-manajement.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                           <div class="col-sm-4">

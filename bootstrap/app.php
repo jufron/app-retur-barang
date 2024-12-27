@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function () {
             Route::prefix('dashboard')-> middleware('web', 'auth')->group( function () {
-                
+
                 Route::middleware('role:admin-retur')->group([
                     __DIR__ . '/../routes/adminReturRoute.php',
                 ]);
@@ -33,9 +33,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
-            'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,
-            'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+            'role'                  => \Spatie\Permission\Middleware\RoleMiddleware::class,
+            'permission'            => \Spatie\Permission\Middleware\PermissionMiddleware::class,
+            'role_or_permission'    => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
+            'DNS1D'                 => Milon\Barcode\Facades\DNS1DFacade::class,
+            'DNS2D'                 => Milon\Barcode\Facades\DNS2DFacade::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

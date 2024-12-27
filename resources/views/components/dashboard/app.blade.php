@@ -38,6 +38,10 @@
       button.btn.btn-info {
         background-color: #3dd5f3;
       }
+
+      .sidebar-wrapper .menu .sidebar-title {
+        font-size: 14px;
+      }
     </style>
 
     @isset($styleOptional)

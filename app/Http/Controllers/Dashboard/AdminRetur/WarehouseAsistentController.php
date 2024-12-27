@@ -33,10 +33,10 @@ class WarehouseAsistentController extends Controller
     public function store(AdminReturRequest $request) : RedirectResponse
     {
         return $this->userManajementService->createUser(
-            request: $request, 
+            request: $request,
             roleName: 'warehouse-asisten',
             message: 'Warehouse Asistent',
-            redirectRouteName: 'warehouse-asistent.index'
+            redirectRouteName: 'admin.warehouse-asistent.index'
         );
     }
 
@@ -58,7 +58,7 @@ class WarehouseAsistentController extends Controller
             request: $request,
             user: $user,
             message: 'Warehouse Asistent',
-            redirectRouteName: 'warehouse-asistent.index'
+            redirectRouteName: 'admin.warehouse-asistent.index'
         );
     }
 
@@ -67,7 +67,7 @@ class WarehouseAsistentController extends Controller
         return $this->userManajementService->destroyUser(
             user: $user,
             message: 'Warehouse Asistent',
-            redirectRouteName: 'warehouse-asistent.index'
+            redirectRouteName: 'admin.warehouse-asistent.index'
         );
     }
 }

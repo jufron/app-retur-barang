@@ -3,7 +3,7 @@
     <div class="sidebar-header position-relative">
       <div class="d-flex justify-content-between align-items-center">
         <div class="logo">
-          <a href="index.html">
+          <a href="{{ route('dashboard') }}">
             <h1 class="fs-6 mt-2">Retur Barang</h1>
           </a>
         </div>
@@ -34,44 +34,75 @@
     <div class="sidebar-menu">
       <ul class="menu">
         <li class="sidebar-title">Daftar Menu</li>
+        <hr>
 
         <li class="sidebar-item  @if (request()->routeIs('dashboard')) active @endif">
           <a href="{{ route('dashboard') }}" class='sidebar-link'>
-            <i class="bi bi-grid-fill"></i>
+            <i class="fa-solid fa-chart-line"></i>
             <span>Dashboard</span>
           </a>
         </li>
 
-        {{-- todo role admin retur  --}}
+        {{-- * role admin retur  --}}
         @hasrole('admin-retur')
-          <x-dashboard.sidebar_menu.menu label="Admin Retur" href="{{ route('admin-retur.index') }}" activeMenu="dashboard/admin-retur*" />
-          <x-dashboard.sidebar_menu.menu label="Warehouse Retur" href="{{ route('warehouse-retur.index') }}" activeMenu="dashboard/warehouse-retur*" />
-          <x-dashboard.sidebar_menu.menu label="Warehouse Asisten" href="{{ route('warehouse-asistent.index') }}" activeMenu="dashboard/warehouse-asistent*" />
+          <li class="sidebar-title">Level Pengguna</li>
+          <hr>
+          <x-dashboard.sidebar_menu.menu label="Admin Retur" href="{{ route('admin.admin-retur.index') }}" activeMenu="dashboard/admin/admin-retur*">
+            <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+          <x-dashboard.sidebar_menu.menu label="Warehouse Retur" href="{{ route('admin.warehouse-retur.index') }}" activeMenu="dashboard/admin/warehouse-retur*">
+            <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+          <x-dashboard.sidebar_menu.menu label="Warehouse Asisten" href="{{ route('admin.warehouse-asistent.index') }}" activeMenu="dashboard/admin/warehouse-asistent*">
+            <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+          <x-dashboard.sidebar_menu.menu label="Logistik" href="{{ route('admin.logistik-manajement.index') }}" activeMenu="dashboard/admin/logistik-manajement*">
+            <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
 
+          <li class="sidebar-title">Data Barang</li>
+          <hr>
+
+          {{-- ? manajement barang --}}
           <x-dashboard.sidebar_menu.menu label="Data Logistik" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/category-barang">
+            <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+          {{-- ? edit ubah hapus --}}
           <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Laporan" href="#" :activeMenu="false" />
         @endhasrole
 
-        {{-- todo role logistik  --}}
+        {{-- * role logistik  --}}
         @hasrole('logistik')
           <x-dashboard.sidebar_menu.menu label="Logistik" href="#" :activeMenu="false" />
+          {{-- ? input edit ubah hapus lihat nomor, nama barang --}}
+          <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
         @endhasrole
 
-        {{-- todo role warehouse asisten  --}}
+        {{-- * role warehouse asisten  --}}
         @hasrole('warehouse-asisten')
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
-          @endhasrole
+        @endhasrole
 
-          {{-- todo role warehouse retur  --}}
-          @hasrole('warehouse-retur')
-          <x-dashboard.sidebar_menu.menu label="Warehouse Asisten<" href="#" :activeMenu="false" />
+        {{-- * role warehouse retur  --}}
+        @hasrole('warehouse-retur')
+          <li class="sidebar-title">Level Pengguna</li>
+          <hr>
+          <x-dashboard.sidebar_menu.menu label="Warehouse Asisten" href="{{ route('wr.warehouse-asistent.index') }}" activeMenu="dashboard/wr/warehouse-asistent*">
+            <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+          <li class="sidebar-title">Data Barang</li>
+          <hr>
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="#" :activeMenu="false" />
+          {{-- ? lihat ubah hapus --}}
+          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory-barang*">
+            <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
+
           <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Laporan" href="#" :activeMenu="false" />
         @endhasrole
@@ -93,6 +124,7 @@
       </li> --}}
 
       {{-- todo profile and logout --}}
+      <hr>
       <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
           <i class="bi bi-stack"></i>
