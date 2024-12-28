@@ -7,11 +7,13 @@ use App\Http\Controllers\Dashboard\AdminRetur\{
     LogistikController,
     WarehouseReturController,
     WarehouseAsistentController,
+    DataLogistikController
 };
 
 // ? prefix dashboard/admin
 Route::prefix('admin')->group( function () {
 
+    // ? admin-retur user manajement
     Route::resource('admin-retur', AdminReturController::class)
         ->parameters(['admin-retur'   => 'user'])
         ->names([
@@ -24,6 +26,7 @@ Route::prefix('admin')->group( function () {
             'destroy'   => 'admin.admin-retur.destroy'
         ]);
 
+    // ? warehouse asistent user manajement
     Route::resource('warehouse-asistent', WarehouseAsistentController::class)
         ->parameters(['warehouse-asistent'   => 'user'])
         ->names([
@@ -36,6 +39,7 @@ Route::prefix('admin')->group( function () {
             'destroy'   => 'admin.warehouse-asistent.destroy'
         ]);
 
+    // ? warehouse retur user manajement
     Route::resource('warehouse-retur', WarehouseReturController::class)
         ->parameters(['warehouse-retur'   => 'user'])
         ->names([
@@ -48,6 +52,7 @@ Route::prefix('admin')->group( function () {
             'destroy'   => 'admin.warehouse-retur.destroy'
         ]);
 
+    // ? logistik user manajement
     Route::resource('logistik-manajement', LogistikController::class)
         ->parameters(['logistik-manajement'   => 'user'])
         ->names([
@@ -62,14 +67,22 @@ Route::prefix('admin')->group( function () {
 
     // ? category barang
     Route::resource('category-barang', CategoryBarangController::class)
-    ->parameters(['category-barang'   => 'kategoryBarang'])
-    ->except(['create', 'store'])
-    ->names([
-        'index'     => 'admin.category-barang.index',
-        'show'      => 'admin.category-barang.show',
-        'edit'      => 'admin.category-barang.edit',
-        'update'    => 'admin.category-barang.update',
-        'destroy'   => 'admin.category-barang.destroy'
-    ]);
+        ->parameters(['category-barang'   => 'kategoryBarang'])
+        ->except(['create', 'store'])
+        ->names([
+            'index'     => 'admin.category-barang.index',
+            'show'      => 'admin.category-barang.show',
+            'edit'      => 'admin.category-barang.edit',
+            'update'    => 'admin.category-barang.update',
+            'destroy'   => 'admin.category-barang.destroy'
+        ]);
 
+    // ? data logistik
+    Route::resource('data-logistik', DataLogistikController::class)
+        ->parameters('data-logistik', 'dataLogistik')
+        ->except(['create', 'store', 'edit', 'update', 'destroy'])
+        ->names([
+            'index'     => 'admin.data-logistik.index',
+            'show'      => 'admin.data-logistik.show'
+        ]);
 });

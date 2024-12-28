@@ -25,16 +25,15 @@
   aria-hidden="true"
   data-bs-backdrop="static"
   >
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered @isset($size)
-    @class([
+  <div @class([
       'modal-full'  => $size === 'full',
       'modal-xl'    => $size === 'extra-large',
       'modal-lg'    => $size === 'large',
       'modal-md'    => $size === 'medium',
       'modal-sm'    => $size === 'small',
-      'modal-md'
-    ])
-  @endisset" role="document">
+      'modal-dialog modal-dialog-scrollable modal-dialog-centered'
+  ])
+  role="document">
       <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">{{ $title }}</h5>

@@ -63,11 +63,12 @@
           <li class="sidebar-title">Data Barang</li>
           <hr>
 
-          {{-- ? manajement barang --}}
-          <x-dashboard.sidebar_menu.menu label="Data Logistik" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Data Logistik" href="{{ route('admin.data-logistik.index') }}" activeMenu="dashboard/admin/data-logistik*">
+            <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/category-barang">
+          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/category-barang*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
           {{-- ? edit ubah hapus --}}
@@ -77,9 +78,11 @@
 
         {{-- * role logistik  --}}
         @hasrole('logistik')
-          <x-dashboard.sidebar_menu.menu label="Logistik" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Logistik" href="{{ route('logistik.data-logistik.index') }}" activeMenu="dashboard/logistik/data-logistik*">
+            <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           {{-- ? input edit ubah hapus lihat nomor, nama barang --}}
-          <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
+          {{-- <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" /> --}}
         @endhasrole
 
         {{-- * role warehouse asisten  --}}
@@ -124,7 +127,7 @@
       </li> --}}
 
       {{-- todo profile and logout --}}
-      <hr>
+      <hr class="mt-2">
       <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
           <i class="bi bi-stack"></i>
