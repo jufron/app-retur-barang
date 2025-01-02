@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\WarehouseRetur\WarehouseAsistentController;
-use App\Http\Controllers\Dashboard\WarehouseRetur\CategoryBarangController;
+use App\Http\Controllers\Dashboard\WarehouseRetur\{
+    WarehouseAsistentController,
+    CategoryBarangController,
+    BarangRusakController,
+};
 
 // ? prefix dashboard/wr    => warehouse retur
 Route::prefix('wr')->group(function () {
@@ -31,5 +34,15 @@ Route::prefix('wr')->group(function () {
         'destroy'   => 'wr.kategory-barang.destroy'
     ]);
 
-    
+    Route::resource('barang-rusak', BarangRusakController::class)
+    ->parameters(['barang-rusak'   => 'barangRusak'])
+    ->names([
+        'index'     => 'wr.barang-rusak.index',
+        'create'    => 'wr.barang-rusak.create',
+        'store'     => 'wr.barang-rusak.store',
+        'show'      => 'wr.barang-rusak.show',
+        'edit'      => 'wr.barang-rusak.edit',
+        'update'    => 'wr.barang-rusak.update',
+        'destroy'   => 'wr.barang-rusak.destroy'
+    ]);
 });

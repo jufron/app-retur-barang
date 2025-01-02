@@ -2,16 +2,22 @@
 
 namespace App\Providers;
 
-use App\Services\DataLogistikService;
 use Illuminate\Support\Facades\Blade;
-use App\Services\CategoryBarangService;
-use App\Services\UserManajementService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
-use App\Services\Contract\DataLogistikServiceInterface;
-use App\Services\Contract\CategoryBarangServiceInterface;
-use App\Services\Contract\UserManajementServiceInterface;
+use App\Services\{
+    BarangRusakService,
+    DataLogistikService,
+    CategoryBarangService,
+    UserManajementService,
+};
+use App\Services\Contract\{
+    BarangRusakServiceInterface,
+    DataLogistikServiceInterface,
+    CategoryBarangServiceInterface,
+    UserManajementServiceInterface,
+};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singletonIf(UserManajementServiceInterface::class, UserManajementService::class);
         $this->app->singletonIf(CategoryBarangServiceInterface::class, CategoryBarangService::class);
         $this->app->singletonIf(DataLogistikServiceInterface::class, DataLogistikService::class);
+        $this->app->singletonIf(BarangRusakServiceInterface::class, BarangRusakService::class);
     }
 
     /**

@@ -66,7 +66,9 @@
           <x-dashboard.sidebar_menu.menu label="Data Logistik" href="{{ route('admin.data-logistik.index') }}" activeMenu="dashboard/admin/data-logistik*">
             <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('admin.barang-rusak.index') }}" activeMenu="dashboard/admin/barang-rusak*">
+            <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
           <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/category-barang*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
@@ -78,6 +80,8 @@
 
         {{-- * role logistik  --}}
         @hasrole('logistik')
+          <li class="sidebar-title">Data Barang</li>
+          <hr>
           <x-dashboard.sidebar_menu.menu label="Logistik" href="{{ route('logistik.data-logistik.index') }}" activeMenu="dashboard/logistik/data-logistik*">
             <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
@@ -99,9 +103,10 @@
           </x-dashboard.sidebar_menu.menu>
           <li class="sidebar-title">Data Barang</li>
           <hr>
+          <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('wr.barang-rusak.index') }}" activeMenu="dashboard/wr/barang-rusak*">
+            <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="#" :activeMenu="false" />
-          {{-- ? lihat ubah hapus --}}
           <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory-barang*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
@@ -130,14 +135,14 @@
       <hr class="mt-2">
       <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
-          <i class="bi bi-stack"></i>
+          <i class="fa-solid fa-right-from-bracket"></i>
           <span>Profil</span>
         </a>
 
         <ul class="submenu">
-          <li class="submenu-item">
+          {{-- <li class="submenu-item">
             <a href="component-accordion.html" class="submenu-link">Profil Saya</a>
-          </li>
+          </li> --}}
           <li class="submenu-item">
             <a href="component-badge.html" class="submenu-link" data-bs-toggle="modal" data-bs-target="#modalLogout">Logout</a>
           </li>

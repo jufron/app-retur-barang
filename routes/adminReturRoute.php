@@ -7,7 +7,8 @@ use App\Http\Controllers\Dashboard\AdminRetur\{
     LogistikController,
     WarehouseReturController,
     WarehouseAsistentController,
-    DataLogistikController
+    DataLogistikController,
+    BarangRusakController,
 };
 
 // ? prefix dashboard/admin
@@ -85,4 +86,17 @@ Route::prefix('admin')->group( function () {
             'index'     => 'admin.data-logistik.index',
             'show'      => 'admin.data-logistik.show'
         ]);
+
+    // ? barang rusak
+    Route::resource('barang-rusak', BarangRusakController::class)
+    ->parameters(['barang-rusak'   => 'barangRusak'])
+    ->except(['create', 'store'])
+    ->names([
+        'index'     => 'admin.barang-rusak.index',
+        'show'      => 'admin.barang-rusak.show',
+        'edit'      => 'admin.barang-rusak.edit',
+        'update'    => 'admin.barang-rusak.update',
+        'destroy'   => 'admin.barang-rusak.destroy'
+    ]);
+
 });

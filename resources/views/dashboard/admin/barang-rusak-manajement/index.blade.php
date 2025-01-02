@@ -1,4 +1,4 @@
-<x-dashboard.app title="Daftar Data Logistik">
+<x-dashboard.app title="Daftar Barang Rusak">
   <x-slot:styleOptional>
     {{-- ? style sweatalert2 --}}
     <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.css') }}">
@@ -7,7 +7,7 @@
 
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Data Logistik Manajement</h3>
+          <h3 class="my-2">Barang Rusak Manajement</h3>
       </div>
   </x-slot:header>
 
@@ -16,43 +16,53 @@
           <div class="col-12">
               <div class="card">
                   <div class="card-header">
-                      <h4 class="card-title">List Data Logistik</h4>
+                      <h4 class="card-title">List Barang Rusak</h4>
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('logistik.data-logistik.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
-
+                          {{-- <a href="{{ route('admin.logistik-manajement.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a> --}}
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
-                                          <th>Tanggal</th>
+                                          <th>Nama Barang</th>
+                                          <th>Barcode</th>
                                           <th>No Nota Retur Barang</th>
-                                          <th>Nama Toko</th>
-                                          <th>Total Harga</th>
-                                          <th>Jumlah Barang</th>
-                                          <th>Tanggal Perbaharui</th>
+                                          <th>Quantity pcs</th>
+                                          <th>Quantity Carton</th>
+                                          <th>Tanggal Epired</th>
+                                          <th>Tanggal Retur</th>
+                                          <th>Reasson Retur</th>
+                                          <th>Nama Penginput</th>
                                           <th>Aksi</th>
                                       </tr>
                                   </thead>
                                   <tbody>
-                                    @foreach ($dataLogistik as $lo)
+                                    @foreach ($barangRusak as $br)
                                       <tr>
-                                          <td>{{ $lo->tanggal_format }}</td>
-                                          <td>{{ $lo->no_nota_retur_barang }}</td>
-                                          <td>{{ $lo->nama_toko }}</td>
-                                          <td>{{ $lo->total_harga_format }}</td>
-                                          <td>{{ $lo->jumlah_barang_format }}</td>
-                                          <td>{{ $lo->updated_at }}</td>
+                                          <td>{{ $br->nama_barang }}</td>
                                           <td>
-                                            <form id="form-delete" action="{{ route('logistik.data-logistik.destroy', $lo) }}" method="post">
+                                            <div class="py-2 px-3 bg-white">
+                                              {!! $br->barcodeGenerate !!}
+                                            </div>
+                                            <strong class="d-flex align-items-center justify-content-center">{{ $br->barcode }}</strong>
+                                          </td>
+                                          <td>{{ $br->nomor_nota_retur_barang }}</td>
+                                          <td>{{ $br->quantity_pcs_format }}</td>
+                                          <td>{{ $br->quantity_carton_format }}</td>
+                                          <td>{{ $br->tanggal_expired_format }}</td>
+                                          <td>{{ $br->tanggal_retur_format }}</td>
+                                          <td>{{ $br->reasson_retur_limit }}</td>
+                                          <td>{{ $br->user->name }}</td>
+                                          <td>
+                                            <form id="form-delete" action="{{ route('admin.barang-rusak.destroy', $br) }}" method="post">
                                               @method('delete')
                                               @csrf
                                               <div class="d-flex">
-                                                <button id="button-info" class="btn btn-info rounded-4" type="button" data-url="{{ route('logistik.data-logistik.show', $lo) }}">
+                                                <button id="button-info" class="btn btn-info rounded-4" type="button" data-url="{{ route('admin.barang-rusak.show', $br) }}">
                                                   <i class="fa-solid fa-info"></i>
                                                 </button>
-                                                <a href="{{ route('logistik.data-logistik.edit', $lo) }}" class="btn icon btn-warning text-white rounded-4">
+                                                <a href="{{ route('admin.barang-rusak.edit', $br) }}" class="btn icon btn-warning text-white rounded-4">
                                                   <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <button id="button-delete" class="btn btn-danger rounded-4" type="button">
@@ -69,8 +79,8 @@
 
                         <x-dashboard.modal.moda-borderles
                           id="show-modal"
-                          title="Info Data Logistik"
-                          size="large"
+                          title="Info Barang Rusak"
+                          size="extra-large"
                           >
                           <div class="modal-body" id="modal-body-information">
 
@@ -92,6 +102,7 @@
     <script src="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>>
 
     {{-- ? my script --}}
-    <script type="module" src="{{ asset('js/dataLogistik.js') }}"></script>
+    <script type="module" src="{{ asset('js/barangRusak.js') }}"></script>
+
   </x-slot:scriptOptional>
 </x-dashboard.app>

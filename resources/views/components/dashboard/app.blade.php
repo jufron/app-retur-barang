@@ -31,6 +31,10 @@
         margin-bottom: 8px;
       }
 
+      button.btn.btn-primary {
+        background-color: #435ebe;
+      }
+
       button.btn.btn-danger {
         background-color: #dc3545;
       }

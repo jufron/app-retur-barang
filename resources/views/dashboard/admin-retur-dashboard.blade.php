@@ -13,119 +13,144 @@
         <section class="row">
             <div class="col-12 col-lg-9">
                 <div class="row">
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                                        <div class="stats-icon purple mb-2">
-                                            <i class="iconly-boldShow"></i>
-                                        </div>
+                  {{-- ? total admin retur count --}}
+                  <div class="col-6 col-lg-4 col-md-6">
+                      <div class="card">
+                          <div class="card-body px-4 py-4-5">
+                              <div class="row">
+                                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                    <div class="stats-icon purple mb-2 green">
+                                      <i class="fa-solid fa-users text-white"></i>
                                     </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Total Admin</h6>
-                                        <h6 class="font-extrabold mb-0">14</h6>
+                                  </div>
+                                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Admin Retur</h6>
+                                    <h6 class="font-extrabold mb-0">14</h6>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- ? total warehouse retur count --}}
+                  <div class="col-6 col-lg-4 col-md-6">
+                      <div class="card">
+                          <div class="card-body px-4 py-4-5">
+                              <div class="row">
+                                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                    <div class="stats-icon purple mb-2 green">
+                                      <i class="fa-solid fa-users text-white"></i>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon blue mb-2">
-                                            <i class="iconly-boldProfile"></i>
-                                        </div>
+                                  </div>
+                                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Warehouse Retur</h6>
+                                    <h6 class="font-extrabold mb-0">1</h6>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- ? total warehouse asistent count --}}
+                  <div class="col-6 col-lg-4 col-md-6">
+                      <div class="card">
+                          <div class="card-body px-4 py-4-5">
+                              <div class="row">
+                                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                    <div class="stats-icon purple mb-2 green">
+                                      <i class="fa-solid fa-users text-white"></i>
                                     </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Total Supplier</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                  </div>
+                                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Warehouse Asistent</h6>
+                                    <h6 class="font-extrabold mb-0">8</h6>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- ? total logistik count --}}
+                  <div class="col-6 col-lg-4 col-md-6">
+                      <div class="card">
+                          <div class="card-body px-4 py-4-5">
+                              <div class="row">
+                                  <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                    <div class="stats-icon purple mb-2 green">
+                                      <i class="fa-solid fa-users text-white"></i>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon green mb-2">
-                                            <i class="iconly-boldAdd-User"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Total Rak</h6>
-                                        <h6 class="font-extrabold mb-0">80.000</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon red mb-2">
-                                            <i class="fa-solid fa-cart-shopping fa-2x text-white"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Jumlah Barang</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon green mb-2">
-                                            <i class="iconly-boldBookmark"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Jumlah Barang Masuk</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-lg-4 col-md-6">
-                        <div class="card">
-                            <div class="card-body px-4 py-4-5">
-                                <div class="row">
-                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                                        <div class="stats-icon purple mb-2">
-                                            <i class="iconly-boldBookmark"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Jumlah Barang Ajuan</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                  </div>
+                                  <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Logistik</h6>
+                                    <h6 class="font-extrabold mb-0">8</h6>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  {{-- ? total data logistik count --}}
                     <div class="col-6 col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
                                     <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                         <div class="stats-icon blue mb-2">
-                                            <i class="iconly-boldBookmark"></i>
+                                            <i class="fa-solid fa-truck-fast text-white"></i>
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Jumlah Barang Keluar</h6>
+                                        <h6 class="text-muted font-semibold">Data Logistik</h6>
+                                        <h6 class="font-extrabold mb-0">11</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  {{-- ? total data barang rusak count --}}
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <div class="stats-icon blue mb-2">
+                                            <i class="fa-solid fa-boxes-stacked text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <h6 class="text-muted font-semibold">Barang Rusak</h6>
+                                        <h6 class="font-extrabold mb-0">11</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  {{-- ? total data kategory barang count --}}
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <div class="stats-icon blue mb-2">
+                                            <i class="fa-solid fa-list text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <h6 class="text-muted font-semibold">Kategory Barang</h6>
+                                        <h6 class="font-extrabold mb-0">11</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body px-4 py-4-5">
+                                <div class="row">
+                                    <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                        <div class="stats-icon purple mb-2">
+                                            <i class="fa-regular fa-file text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                        <h6 class="text-muted font-semibold">Nota Barang Retur</h6>
                                         <h6 class="font-extrabold mb-0">112</h6>
                                     </div>
                                 </div>
@@ -149,14 +174,17 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Visitors Profile</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="chart-visitors-profile"></div>
-                    </div>
+              <div class="card">
+                <div class="card-header text-center">
+                    <h4>Cuaca Hari Ini</h4>
                 </div>
+                <div class="card-body text-center" id="cuaca">
+    
+                </div>
+                <div class="text-center mb-3">
+                    <small>Data cuaca dari <a href="https://www.bmkg.go.id/" target="_blank" rel="noopener noreferrer">BMKG API</a></small>
+                </div>
+              </div>
             </div>
         </section>
         <section class="row">
@@ -180,5 +208,6 @@
       <script src="{{ asset('mazer/assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
       <script src="{{ asset('mazer/assets/static/js/pages/dashboard.js') }}"></script>
           
+      <script src="{{ asset('js/waither.js') }}"></script>
   </x-slot:scriptOptional>
 </x-dashboard.app>

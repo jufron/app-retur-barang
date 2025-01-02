@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            RoleSeeder::class,
             UserSeeder::class,
-            // RoleSeeder::class,
         ]);
 
         $user1 = User::query()->where('name', 'ahoo')->first();

@@ -57,4 +57,16 @@ class HomeController extends Controller
             return view('home');
         }
     }
+
+    public function warehouseRetur ()
+    {
+        return response()->json([
+            'data'  => [
+                'warehouseReturCount',
+                'barangRusakCount',
+                'barangSortirCount',
+                'kategoryBarangCount'
+            ]
+        ], 200);
+    }
 }

@@ -26,6 +26,7 @@
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
+                                          <th>Tanggal</th>
                                           <th>No Nota Retur Barang</th>
                                           <th>Nama Toko</th>
                                           <th>Total Harga</th>
@@ -37,6 +38,7 @@
                                   <tbody>
                                     @foreach ($dataLogistik as $lo)
                                       <tr>
+                                          <td>{{ $lo->tanggal_format }}</td>
                                           <td>{{ $lo->no_nota_retur_barang }}</td>
                                           <td>{{ $lo->nama_toko }}</td>
                                           <td>{{ $lo->total_harga_format }}</td>
