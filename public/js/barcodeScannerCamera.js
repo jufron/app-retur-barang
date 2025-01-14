@@ -1,3 +1,4 @@
+
 const inputBarcode = document.querySelector('#barcode');
 
 const buttonShowModal = document.querySelector('#barcode-show-modal');
@@ -56,6 +57,8 @@ buttonShowModal.addEventListener('click', () => {
 
             Quagga.stop(); // Hentikan kamera
             myModal.hide(); // Tutup modal
+
+            getData();
         }
     });
 

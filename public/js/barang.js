@@ -19,19 +19,7 @@ getInfo(function (data, modalBody) {
                         Kode Barcode
                     </div>
                     <div class="col-md-8">
-                        ${data.barcode_code}
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-4 font-weight-bold">
-                        Barcode
-                    </div>
-                    <div class="col-md-8">
-                        <div class="p-2" style="background-color: white">
-                            ${data.barcode}                        
-                        </div>
+                        ${data.kode_barcode}
                     </div>
                 </div>
             </li>
@@ -41,7 +29,17 @@ getInfo(function (data, modalBody) {
                         Kategory
                     </div>
                     <div class="col-md-8">
-                        ${data.kategory_barang}
+                        ${data.kategory}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4 font-weight-bold">
+                        Deskripsi Barang
+                    </div>
+                    <div class="col-md-8">
+                        ${data.deskripsi_barang}
                     </div>
                 </div>
             </li>

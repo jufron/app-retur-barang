@@ -26,7 +26,6 @@
                                   <thead>
                                       <tr>
                                           <th>Nama Barang</th>
-                                          <th>Barcode</th>
                                           <th>No Nota Retur Barang</th>
                                           <th>Quantity pcs</th>
                                           <th>Quantity Carton</th>
@@ -40,13 +39,7 @@
                                   <tbody>
                                     @foreach ($barangRusak as $br)
                                       <tr>
-                                          <td>{{ $br->nama_barang }}</td>
-                                          <td>
-                                            <div class="py-2 px-3 bg-white">
-                                              {!! $br->barcodeGenerate !!}
-                                            </div>
-                                            <strong class="d-flex align-items-center justify-content-center">{{ $br->barcode }}</strong>
-                                          </td>
+                                          <td>{{ $br->barang->nama_barang }}</td>
                                           <td>{{ $br->nomor_nota_retur_barang }}</td>
                                           <td>{{ $br->quantity_pcs_format }}</td>
                                           <td>{{ $br->quantity_carton_format }}</td>

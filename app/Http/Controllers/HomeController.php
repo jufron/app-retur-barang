@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Contract\HomeServiceInterface;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-
 
 class HomeController extends Controller
 {
+    protected HomeServiceInterface $homeService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(HomeServiceInterface $homeService)
     {
         $this->middleware('auth');
+        $this->homeService = $homeService;
     }
 
     /**
@@ -58,14 +61,53 @@ class HomeController extends Controller
         }
     }
 
-    public function warehouseRetur ()
+    public function adminRetur () : JsonResponse
+    {
+        return response()->json([
+            'status'    => 'success',
+            'data'      => [
+                'adminReturCount'           => $this->homeService->getAdminReturCount(),
+                'warehouseReturCount'       => $this->homeService->getWarehouseReturCount(),
+                'warehouseAsistentCount'    => $this->homeService->getWarehouseAsistentCount(),
+                'logistikCount'             => $this->homeService->getLogistikUserCount(),
+                'dataLogistikCount'         => $this->homeService->getDataLogistikCount(),
+                'barangRusakCount'          => $this->homeService->getBarangRusakCount(),
+                'barangSortirCount'         => $this->homeService->getBarangSortirCount(),
+                'barangCount'               => $this->homeService->getBarangCount(),
+                'kategoryBarangCount'       => $this->homeService->getKategoryBarangCount(),
+                'notaReturBarangCount'      => $this->homeService->getNotaReturBarangCount(),
+            ]
+        ], 200);
+    }
+
+    public function logistik () : JsonResponse
+    {
+        return response()->json([
+            'status'    => 'success',
+            'data'      => [
+                'dataLogistikCount'     =>  $this->homeService->getDataLogistikCount(),
+            ]
+        ], 200);
+    }
+
+    public function warehouseAsistent () : JsonResponse
+    {
+        return response()->json([
+            'status'    => 'success',
+            'data'      => [
+                'barangSortirCount' => $this->homeService->getBarangSortirCount(),
+            ]
+        ], 200);
+    }
+
+    public function warehouseRetur () : JsonResponse
     {
         return response()->json([
             'data'  => [
-                'warehouseReturCount',
-                'barangRusakCount',
-                'barangSortirCount',
-                'kategoryBarangCount'
+                'warehouseReturCount'       => $this->homeService->getWarehouseReturCount(),
+                'barangRusakCount'          => $this->homeService->getBarangRusakCount(),
+                'barangSortirCount'         => $this->homeService->getBarangSortirCount(),
+                'kategoryBarangCount'       => $this->homeService->getKategoryBarangCount(),
             ]
         ], 200);
     }

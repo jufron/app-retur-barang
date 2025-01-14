@@ -14,24 +14,16 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                      <form action="{{ route('wr.kategory-barang.update', $kategoryBarang) }}" method="post" enctype="multipart/form-data">
+                      <form action="{{ route('wr.kategory-barang.update', $kategory) }}" method="post">
                         @method('patch')
                         @csrf
                         <div class="row">
                           <div class="col-sm-4">
                             <x-dashboard.input.form-input
-                              label="Nama Barang"
-                              name="nama_barang"
-                              placeholder="Masukan Nama Barang..."
-                              value="{{ old('nama_barang', $kategoryBarang->nama_barang) }}"
-                            />
-                          </div>
-                          <div class="col-sm-4">
-                            <x-dashboard.input.form-input
-                              label="Kategory Barang"
-                              name="kategory_barang"
-                              placeholder="Masukan Kategory Barang..."
-                              value="{{ old('kategory_barang', $kategoryBarang->kategory_barang) }}"
+                              label="Nama Kategory Barang"
+                              name="name"
+                              placeholder="Masukan Nama Kategry Barang..."
+                              value="{{ old('name', $kategory->name) }}"
                             />
                           </div>
                         </div>

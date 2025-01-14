@@ -16,6 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+            ReassonReturSeeder::class,
+            KategorySeeder::class,
+            BarangSeeder::class,
+            BarangRusakSeeder::class,
+            DataLogistikSeeder::class,
+            // barangsortir
         ]);
 
         $user1 = User::query()->where('name', 'ahoo')->first();

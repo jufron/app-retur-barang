@@ -3,12 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\AdminRetur\{
     AdminReturController,
-    CategoryBarangController,
     LogistikController,
     WarehouseReturController,
     WarehouseAsistentController,
     DataLogistikController,
     BarangRusakController,
+    KategoryController,
+    BarangController
 };
 
 // ? prefix dashboard/admin
@@ -66,9 +67,20 @@ Route::prefix('admin')->group( function () {
             'destroy'   => 'admin.logistik-manajement.destroy'
         ]);
 
+    // ? barang
+    Route::resource('barang', BarangController::class)
+        ->names([
+            'index'     => 'admin.barang.index',
+            'create'    => 'admin.barang.create',
+            'store'     => 'admin.barang.store',
+            'show'      => 'admin.barang.show',
+            'edit'      => 'admin.barang.edit',
+            'update'    => 'admin.barang.update',
+            'destroy'   => 'admin.barang.destroy'
+        ]);
+
     // ? category barang
-    Route::resource('category-barang', CategoryBarangController::class)
-        ->parameters(['category-barang'   => 'kategoryBarang'])
+    Route::resource('kategory', KategoryController::class)
         ->except(['create', 'store'])
         ->names([
             'index'     => 'admin.category-barang.index',
@@ -88,15 +100,19 @@ Route::prefix('admin')->group( function () {
         ]);
 
     // ? barang rusak
+    Route::get('barang-rusak/search', [BarangRusakController::class, 'search'])
+    ->name('admin.barang-rusak.search');
+
     Route::resource('barang-rusak', BarangRusakController::class)
-    ->parameters(['barang-rusak'   => 'barangRusak'])
-    ->except(['create', 'store'])
-    ->names([
-        'index'     => 'admin.barang-rusak.index',
-        'show'      => 'admin.barang-rusak.show',
-        'edit'      => 'admin.barang-rusak.edit',
-        'update'    => 'admin.barang-rusak.update',
-        'destroy'   => 'admin.barang-rusak.destroy'
-    ]);
+        ->parameters(['barang-rusak'   => 'barangRusak'])
+        ->except(['create', 'store'])
+        ->names([
+            'index'     => 'admin.barang-rusak.index',
+            'show'      => 'admin.barang-rusak.show',
+            'edit'      => 'admin.barang-rusak.edit',
+            'update'    => 'admin.barang-rusak.update',
+            'destroy'   => 'admin.barang-rusak.destroy'
+        ]);
+
 
 });

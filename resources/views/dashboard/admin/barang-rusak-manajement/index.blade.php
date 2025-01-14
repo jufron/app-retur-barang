@@ -25,35 +25,28 @@
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
-                                          <th>Nama Barang</th>
-                                          <th>Barcode</th>
-                                          <th>No Nota Retur Barang</th>
-                                          <th>Quantity pcs</th>
-                                          <th>Quantity Carton</th>
-                                          <th>Tanggal Epired</th>
-                                          <th>Tanggal Retur</th>
-                                          <th>Reasson Retur</th>
-                                          <th>Nama Penginput</th>
-                                          <th>Aksi</th>
+                                        <th>Nama Barang</th>
+                                        <th>No Nota Retur Barang</th>
+                                        <th>Quantity pcs</th>
+                                        <th>Quantity Carton</th>
+                                        <th>Tanggal Epired</th>
+                                        <th>Tanggal Retur</th>
+                                        <th>Reasson Retur</th>
+                                        <th>Nama Penginput</th>
+                                        <th>Aksi</th>
                                       </tr>
                                   </thead>
                                   <tbody>
                                     @foreach ($barangRusak as $br)
                                       <tr>
-                                          <td>{{ $br->nama_barang }}</td>
-                                          <td>
-                                            <div class="py-2 px-3 bg-white">
-                                              {!! $br->barcodeGenerate !!}
-                                            </div>
-                                            <strong class="d-flex align-items-center justify-content-center">{{ $br->barcode }}</strong>
-                                          </td>
-                                          <td>{{ $br->nomor_nota_retur_barang }}</td>
-                                          <td>{{ $br->quantity_pcs_format }}</td>
-                                          <td>{{ $br->quantity_carton_format }}</td>
-                                          <td>{{ $br->tanggal_expired_format }}</td>
-                                          <td>{{ $br->tanggal_retur_format }}</td>
-                                          <td>{{ $br->reasson_retur_limit }}</td>
-                                          <td>{{ $br->user->name }}</td>
+                                        <td>{{ $br->barang->nama_barang }}</td>
+                                        <td>{{ $br->nomor_nota_retur_barang }}</td>
+                                        <td>{{ $br->quantity_pcs_format }}</td>
+                                        <td>{{ $br->quantity_carton_format }}</td>
+                                        <td>{{ $br->tanggal_expired_format }}</td>
+                                        <td>{{ $br->tanggal_retur_format }}</td>
+                                        <td>{{ $br->reassonRetur->name }}</td>
+                                        <td>{{ $br->user->name }}</td>
                                           <td>
                                             <form id="form-delete" action="{{ route('admin.barang-rusak.destroy', $br) }}" method="post">
                                               @method('delete')

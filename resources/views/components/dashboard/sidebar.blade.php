@@ -63,19 +63,20 @@
           <li class="sidebar-title">Data Barang</li>
           <hr>
 
+          <x-dashboard.sidebar_menu.menu label="Barang" href="{{ route('admin.barang.index') }}" routeNameActive="admin.barang.*">
+            <x-slot:icon><i class="fa-solid fa-box"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Data Logistik" href="{{ route('admin.data-logistik.index') }}" activeMenu="dashboard/admin/data-logistik*">
             <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('admin.barang-rusak.index') }}" activeMenu="dashboard/admin/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/category-barang*">
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
+          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          {{-- ? edit ubah hapus --}}
-          <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" />
         @endhasrole
 
         {{-- * role logistik  --}}
@@ -86,33 +87,34 @@
             <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
           {{-- ? input edit ubah hapus lihat nomor, nama barang --}}
-          {{-- <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" /> --}}
+          {{-- <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" /> --}}
         @endhasrole
 
         {{-- * role warehouse asisten  --}}
         @hasrole('warehouse-asisten')
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
         @endhasrole
 
         {{-- * role warehouse retur  --}}
         @hasrole('warehouse-retur')
           <li class="sidebar-title">Level Pengguna</li>
           <hr>
-          <x-dashboard.sidebar_menu.menu label="Warehouse Asisten" href="{{ route('wr.warehouse-asistent.index') }}" activeMenu="dashboard/wr/warehouse-asistent*">
+          <x-dashboard.sidebar_menu.menu label="Warehouse Retur" href="{{ route('wr.warehouse-retur.index') }}" activeMenu="dashboard/wr/warehouse-retur*">
             <x-slot:icon><i class="fa-solid fa-users"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
           <li class="sidebar-title">Data Barang</li>
           <hr>
+          <x-dashboard.sidebar_menu.menu label="Barang" href="{{ route('wr.barang.index') }}" routeNameActive="wr.barang.*">
+            <x-slot:icon><i class="fa-solid fa-box"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('wr.barang-rusak.index') }}" activeMenu="dashboard/wr/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory-barang*">
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
+          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-
-          <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" :activeMenu="false" />
-          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" :activeMenu="false" />
+          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" />
         @endhasrole
 
         {{-- <li class="sidebar-item has-sub {{ Request::is('extra-component-*') ? 'active' : '' }}">

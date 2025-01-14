@@ -1,7 +1,6 @@
 import getInfo from './tableScript.js';
 
 getInfo(function (data, modalBody) {
-    console.log(data);
     const element = `
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -26,7 +25,7 @@ getInfo(function (data, modalBody) {
                         Nomor Nota Retur Barang
                     </div>
                     <div class="col-md-9">
-                        ${data.nomor_nota_retur_barang}                        
+                        ${data.nomor_nota_retur_barang}
                     </div>
                 </div>
             </li>
@@ -79,7 +78,7 @@ getInfo(function (data, modalBody) {
                     </div>
                 </div>
             </li>
-            
+
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-3 font-weight-bold">

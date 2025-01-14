@@ -9,14 +9,18 @@ use Illuminate\Validation\Rules\Password;
 use App\Services\{
     BarangRusakService,
     DataLogistikService,
-    CategoryBarangService,
     UserManajementService,
+    KategoryService,
+    BarangService,
+    HomeService,
 };
 use App\Services\Contract\{
     BarangRusakServiceInterface,
+    BarangServiceInterface,
     DataLogistikServiceInterface,
-    CategoryBarangServiceInterface,
     UserManajementServiceInterface,
+    CategoryServiceInterface,
+    HomeServiceInterface,
 };
 
 class AppServiceProvider extends ServiceProvider
@@ -26,10 +30,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // ? initialize service class
+        $this->app->singletonIf(HomeServiceInterface::class, HomeService::class);
         $this->app->singletonIf(UserManajementServiceInterface::class, UserManajementService::class);
-        $this->app->singletonIf(CategoryBarangServiceInterface::class, CategoryBarangService::class);
+        $this->app->singletonIf(CategoryServiceInterface::class, KategoryService::class);
         $this->app->singletonIf(DataLogistikServiceInterface::class, DataLogistikService::class);
         $this->app->singletonIf(BarangRusakServiceInterface::class, BarangRusakService::class);
+        $this->app->singletonIf(BarangServiceInterface::class, BarangService::class);
     }
 
     /**

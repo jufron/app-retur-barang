@@ -12,7 +12,7 @@
   <div class="page-content">
     <section class="row">
       <div class="col-12 col-lg-9">
-        <div class="row">
+        <div class="row" id="dashboard" data-url="">
           {{-- ? warehouse retur count --}}
           <div class="col-6 col-lg-4 col-md-6">
               <div class="card">
@@ -157,5 +157,8 @@
 
     <script src="{{ asset('js/waither.js') }}"></script>
 
+    <script>
+
+    </script>
   </x-slot:scriptOptional>
 </x-dashboard.app>

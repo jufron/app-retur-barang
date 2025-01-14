@@ -1,4 +1,4 @@
-<x-dashboard.app title="Warehouse retur dashboard">
+<x-dashboard.app title="Warehouse retur manajement">
   <x-slot:styleOptional>
     {{-- ? style sweatalert2 --}}
     <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.css') }}">

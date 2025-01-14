@@ -25,30 +25,26 @@
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
-                                          <th>Nama Barang</th>
-                                          <th>Barcode</th>
-                                          <th>Kategory</th>
+                                          <th>Nama Kategory</th>
                                           <th>Tanggal Buat</th>
                                           <th>Tanggal Perbaharui</th>
                                           <th>Aksi</th>
                                       </tr>
                                   </thead>
                                   <tbody>
-                                    @foreach ($kategoryBarang as $kb)
+                                    @foreach ($kategory as $kt)
                                       <tr>
-                                          <td>{{ $kb->nama_barang }}</td>
-                                          <td style="background-color: white">{!! $kb->barcode_barang_generate !!}</td>
-                                          <td>{{ $kb->kategory_barang }}</td>
-                                          <td>{{ $kb->created_at }}</td>
-                                          <td>{{ $kb->updated_at }}</td>
+                                          <td>{{ $kt->name }}</td>
+                                          <td>{{ $kt->created_at }}</td>
+                                          <td>{{ $kt->updated_at }}</td>
                                           <td>
-                                            <form id="form-delete" action="{{ route('wr.kategory-barang.destroy', $kb) }}" method="post">
+                                            <form id="form-delete" action="{{ route('wr.kategory-barang.destroy', $kt) }}" method="post">
                                               @method('delete')
                                               @csrf
-                                              <button id="button-info" class="btn btn-info rounded-4" type="button" data-url="{{ route('wr.kategory-barang.show', $kb) }}">
+                                              <button id="button-info" class="btn btn-info rounded-4" type="button" data-url="{{ route('wr.kategory-barang.show', $kt) }}">
                                                 <i class="fa-solid fa-info"></i>
                                               </button>
-                                              <a href="{{ route('wr.kategory-barang.edit', $kb) }}" class="btn icon btn-warning text-white rounded-4">
+                                              <a href="{{ route('wr.kategory-barang.edit', $kt) }}" class="btn icon btn-warning text-white rounded-4">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                               </a>
                                               <button id="button-delete" class="btn btn-danger rounded-4" type="button">
@@ -87,6 +83,6 @@
     <script src="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.js') }}"></script>>
 
     {{-- ? my script --}}
-    <script type="module" src="{{ asset('js/kategoryBarang.js') }}"></script>
+    <script type="module" src="{{ asset('js/kategory.js') }}"></script>
   </x-slot:scriptOptional>
 </x-dashboard.app>

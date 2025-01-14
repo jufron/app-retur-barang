@@ -19,21 +19,12 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <x-dashboard.input.form-input
-                              label="Nama Barang"
-                              name="nama_barang"
-                              placeholder="Masukan Nama Barang..."
-                              value="{{ old('nama_barang') }}"
+                              label="Nama Kateory Barang"
+                              name="name"
+                              placeholder="Masukan Nama Kategory Barang..."
+                              value="{{ old('name') }}"
                             />
                           </div>
-                          <div class="col-sm-4">
-                            <x-dashboard.input.form-input
-                              label="Kategory Barang"
-                              name="kategory_barang"
-                              placeholder="Masukan Kategory Barang..."
-                              value="{{ old('kategory_barang') }}"
-                            />
-                          </div>
-
                         </div>
 
                         <button class="btn btn-success mt-4">Simpan</button>

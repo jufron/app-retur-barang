@@ -22,14 +22,21 @@ class BarangRusakRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_barang'                   => ['required', 'string', 'max:200'],
-            'barcode'                       => ['required', 'string', 'max:100'],
             'quantity_pcs'                  => ['required', 'numeric', 'min:0', 'max:999999'],
             'quantity_carton'               => ['required', 'numeric', 'min:0', 'max:999999'],
             'tanggal_expired'               => ['required', 'date'],
             'tanggal_retur'                 => ['required', 'date'],
+            'barang_id'                     => ['required', 'string', 'exists:barang,id'],
             'reasson_retur_id'              => ['required', 'string', 'exists:reasson_retur,id'],
-            'user_id'                       => ['sometimes', 'string', 'exists:users,id'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'barang_id.exists'      => 'Barang harus sudah terdaftar di menu barang',
+            'barang_id.required'    => 'Nama Barang harus Diisi',
+            'barang_id.string'      => 'Nama Barang harus berupa string.',
         ];
     }
 }

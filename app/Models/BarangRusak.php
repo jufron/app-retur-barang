@@ -14,20 +14,35 @@ class BarangRusak extends Model
 {
     use HasFactory, DateFormatCreatedAttAndUpdatedAt;
 
+    /**
+     * * The table associated with the model.
+     * * update model V.3
+     *
+     * @var string
+     */
     protected $table = 'barang_rusak';
 
+    /**
+     * * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
     protected $fillable = [
-        'nama_barang',
-        'barcode',
         'nomor_nota_retur_barang',
         'quantity_pcs',
         'quantity_carton',
         'tanggal_expired',
         'tanggal_retur',
+        'barang_id',
         'reasson_retur_id',
-        'user_id'
+        'user_id',
     ];
 
+    /**
+     * * Get the formatted quantity in pieces.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function quantityPcsFormat () : Attribute
     {
         return Attribute::make(
@@ -35,6 +50,11 @@ class BarangRusak extends Model
         );
     }
 
+    /**
+     * * Get the formatted quantity in cartons.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function quantityCartonFormat () : Attribute
     {
         return Attribute::make(
@@ -42,6 +62,11 @@ class BarangRusak extends Model
         );
     }
 
+    /**
+     * * Get the formatted expiry date.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function tanggalExpiredFormat () : Attribute
     {
         return Attribute::make(
@@ -49,6 +74,11 @@ class BarangRusak extends Model
         );
     }
 
+    /**
+     * * Get the formatted return date.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
     protected function tanggalReturFormat () : Attribute
     {
         return Attribute::make(
@@ -56,40 +86,31 @@ class BarangRusak extends Model
         );
     }
 
-    protected function barcodeGenerate (): Attribute
+    /**
+     * Get the barang that owns the BarangRusak
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function barang(): BelongsTo
     {
-        return Attribute::make(
-            get: function () { 
-                // Mengambil nilai barcode dari atribut
-                $barcode = $this->getAttribute('barcode');
-                
-                 // Menghitung panjang barcode
-                $length = strlen($barcode);
-                    
-                // Menentukan tipe barcode berdasarkan panjang
-                $barcodeType = 'EAN13';
-    
-                if ($length == 13 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'EAN13';
-                } elseif ($length == 8 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'EAN8';
-                } elseif ($length == 12 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'UPCA';
-                } elseif ($length > 13 && preg_match('/^[a-zA-Z0-9]+$/', $barcode)) {
-                    $barcodeType = 'C128';
-                }
-    
-                $barcodeGenerator = new DNS1D();
-                return $barcodeGenerator->getBarcodeHTML($barcode, $barcodeType);
-            }
-        );
+        return $this->belongsTo(Barang::class);
     }
 
+    /**
+     * * Get the reason for return that owns the damaged item.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function reassonRetur () : BelongsTo
     {
         return $this->belongsTo(ReassonRetur::class);
     }
 
+    /**
+     * * Get the user that owns the damaged item.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user () : BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');

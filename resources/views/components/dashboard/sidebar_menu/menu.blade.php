@@ -10,10 +10,18 @@
 @props([
   'label',
   'href',
-  'activeMenu' => false
+  'activeMenu' => null,
+  'routeNameActive' => null,
 ])
 
-<li class="sidebar-item @if (request()->is($activeMenu)) active @endif">
+<li class="sidebar-item 
+  @isset($activeMenu)
+    @if (request()->is($activeMenu)) active @endif
+  @endisset
+  @isset($routeNameActive)
+    @if (request()->routeIs($routeNameActive)) active @endif
+  @endisset
+    ">
   <a href="{{ $href }}" class='sidebar-link'>
     @isset($icon)
       {{ $icon }}
