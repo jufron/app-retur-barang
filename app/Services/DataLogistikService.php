@@ -12,20 +12,34 @@ use App\Services\Contract\DataLogistikServiceInterface;
 
 class DataLogistikService implements DataLogistikServiceInterface
 {
+    /**
+     * Get all data logistik records ordered by latest
+     *
+     * @return \Illuminate\Support\Collection
+     */
     public function getDataLogistik () : Collection
     {
         return DataLogistik::query()->latest()->get();
     }
 
+    /**
+     * Create a new data logistik record
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return void
+     */
     public function creaateDataLogistik (Request $request) : void
     {
-        $request->merge([
-            'no_nota_retur_barang' => Str::upper(Str::random(20))
-        ]);
         DataLogistik::create($request->all());
         notify()->success("Berhasil menambahkan data logistik");
     }
 
+    /**
+     * Get single data logistik record
+     *
+     * @param \App\Models\DataLogistik $dataLogistik
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function showDataLogistik (DataLogistik $dataLogistik) : JsonResponse
     {
         if (!$dataLogistik) {
@@ -43,9 +57,16 @@ class DataLogistikService implements DataLogistikServiceInterface
         ], 200);
     }
 
+    /**
+     * Update existing data logistik record
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\DataLogistik $dataLogistik
+     * @return void
+     */
     public function updateDataLogistik (Request $request, DataLogistik $dataLogistik) : void
     {
-        $dataLogistik->update($request->only(['tanggal', 'nama_toko', 'total_harga', 'jumlah_barang']));
+        $dataLogistik->update($request->all());
         notify()->success("Berhasil mengubah data logistik");
     }
 }

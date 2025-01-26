@@ -1,13 +1,13 @@
 <footer>
   <div class="footer clearfix mb-0 text-muted">
     <div class="float-start">
-      <p>Copyright &copy; 2025 <a href="https://saugi.me">Saugi</a>. All rights reserved.</p>
+      <p>Copyright &copy; 2025 <a href="{{ route('dashboard') }}">Dashboard Aplikasi Retur Barang</a></p>
     </div>
     <div class="float-end">
-      <p>
-        Crafted with <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i></span>
-        by <a href="https://saugi.me">Saugi</a>
-      </p>
+      @hasrole('admin-retur') <p>Admin Retur : <span class="text-success">@auth {{ auth()->user()->name }} @else User @endauth </span></p> @endhasrole
+      @hasrole('logistik') <p>Logistik : <span class="text-success">@auth {{ auth()->user()->name }} @else User @endauth </span></p> @endhasrole
+      @hasrole('warehouse-retur') <p>Warehouse Retur : <span class="text-success">@auth {{ auth()->user()->name }} @else User @endauth </span></p> @endhasrole
+      @hasrole('warehouse-asisten') <p>Warehouse Asisten : <span class="text-success">@auth {{ auth()->user()->name }} @else User @endauth </span></p> @endhasrole
     </div>
   </div>
 </footer>

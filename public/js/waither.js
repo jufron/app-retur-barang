@@ -1,6 +1,6 @@
 const cardCuaca = document.getElementById('cuaca');
 
-const codeWilayahID = '53.71.02.1002';
+const codeWilayahID = '51.71.04.2008';
 // wilayah code https://kodewilayah.id/
 const waitherUrlApi = `https://api.bmkg.go.id/publik/prakiraan-cuaca?adm4=${codeWilayahID}`;
 

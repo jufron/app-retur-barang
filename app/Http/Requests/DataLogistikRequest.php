@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class DataLogistikRequest extends FormRequest
 {
@@ -21,7 +22,17 @@ class DataLogistikRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Ambil parameter ID dari route (sesuai nama parameter di route)
+        $id = $this->route('barangSortir');
+
         return [
+            'nomor_nota_retur_barang'       => [
+                'required',
+                Rule::unique('barang_sortir', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
+                'string',
+                'regex:/^[A-Z0-9]+$/',
+                'max_digits:20'
+            ],
             'tanggal'               => ['required', 'date'],
             'nama_toko'             => ['required', 'string', 'min:1', 'max:200'],
             'total_harga'           => ['required', 'numeric', 'min_digits:1', 'max_digits:20'],

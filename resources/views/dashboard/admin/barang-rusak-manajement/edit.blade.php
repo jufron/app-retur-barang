@@ -105,6 +105,14 @@
                         value="{{ old('tanggal_retur', $barangRusak->tanggal_retur) }}"
                       />
                     </div>
+                    <div class="col-md-5">
+                      <x-dashboard.input.form-input
+                        label="Nomor Nota Retur Barang"
+                        name="nomor_nota_retur_barang"
+                        placeholder="Masukan Nomor Nota Retur Barang..."
+                        value="{{ old('nomor_nota_retur_barang', $barangRusak->nomor_nota_retur_barang) }}"
+                      />
+                    </div>
                     <div class="col-md-6">
                       <x-dashboard.input.form-select-search
                         label="Alasan Retur"

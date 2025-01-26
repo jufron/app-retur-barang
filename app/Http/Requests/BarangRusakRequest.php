@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BarangRusakRequest extends FormRequest
@@ -21,7 +22,17 @@ class BarangRusakRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Ambil parameter ID dari route (sesuai nama parameter di route)
+        $id = $this->route('barangSortir');
+
         return [
+            'nomor_nota_retur_barang'       => [
+                'required',
+                Rule::unique('barang_sortir', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
+                'string',
+                'regex:/^[A-Z0-9]+$/',
+                'max_digits:20'
+            ],
             'quantity_pcs'                  => ['required', 'numeric', 'min:0', 'max:999999'],
             'quantity_carton'               => ['required', 'numeric', 'min:0', 'max:999999'],
             'tanggal_expired'               => ['required', 'date'],

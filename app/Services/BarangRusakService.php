@@ -67,7 +67,6 @@ class BarangRusakService implements BarangRusakServiceInterface
     public function storeBarangRusak(Request $request) : void
     {
         $request->merge([
-            'nomor_nota_retur_barang'   => $this->generateStringAndNumberRandom(),
             'user_id'                   => auth()->user()->id
         ]);
         BarangRusak::create($request->except('barcode', 'search_terms'));
@@ -127,7 +126,7 @@ class BarangRusakService implements BarangRusakServiceInterface
     {
         $barangRusak->load(['reassonRetur', 'user']);
         $barangRusak->update($request->except('barcode', 'search_terms'));
-        notify()->success("Berhasil Menyimpan Kategory Barang");
+        notify()->success("Berhasil Memperbaharui Kategory Barang");
     }
 
     /**

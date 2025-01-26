@@ -17,8 +17,15 @@
                       <form action="{{ route('logistik.data-logistik.update', $dataLogistik) }}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
-
                         <div class="row">
+                          <div class="col-md-5">
+                            <x-dashboard.input.form-input
+                              label="Nomor Nota Retur Barang"
+                              name="no_nota_retur_barang"
+                              placeholder="Masukan Nomor Nota Retur Barang..."
+                              value="{{ old('no_nota_retur_barang', $dataLogistik->no_nota_retur_barang) }}"
+                            />
+                          </div>
                           <div class="col-sm-3">
                             <x-dashboard.input.form-input
                               label="tanggal"

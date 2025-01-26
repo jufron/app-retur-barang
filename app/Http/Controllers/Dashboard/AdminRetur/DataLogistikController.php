@@ -11,8 +11,10 @@ use Illuminate\View\View;
 
 class DataLogistikController extends Controller
 {
-
-    protected $dataLogistikService;
+    /**
+     * @var DataLogistikServiceInterface
+     */
+    protected DataLogistikServiceInterface $dataLogistikService;
 
     /**
      * Create a new controller instance.
@@ -24,7 +26,11 @@ class DataLogistikController extends Controller
         $this->dataLogistikService = $dataLogistikService;
     }
 
-
+    /**
+     * Display a listing of the data logistik.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index () : View
     {
         return view('dashboard.admin.data-logistik-manajement.index', [
@@ -32,6 +38,12 @@ class DataLogistikController extends Controller
         ]);
     }
 
+    /**
+     * Display the specified data logistik.
+     *
+     * @param  \App\Models\DataLogistik  $dataLogistik
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show (DataLogistik $dataLogistik) : JsonResponse
     {
         return $this->dataLogistikService->showDataLogistik($dataLogistik);

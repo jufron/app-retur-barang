@@ -108,14 +108,22 @@
                             value="{{ old('tanggal_retur', $barangRusak->tanggal_retur) }}"
                           />
                         </div>
-                        <div class="col-md-6">
-                          <x-dashboard.input.form-select-search
-                            label="Alasan Retur"
-                            name="reasson_retur_id"
-                            :model="$reassonRetur"
-                            :selected="old('reasson_retur_id', $barangRusak->reasson_retur_id)"
+                        <div class="col-md-5">
+                          <x-dashboard.input.form-input
+                            label="Nomor Nota Retur Barang"
+                            name="nomor_nota_retur_barang"
+                            placeholder="Masukan Nomor Nota Retur Barang..."
+                            value="{{ old('nomor_nota_retur_barang', $barangRusak->nomor_nota_retur_barang) }}"
                           />
                         </div>
+                      </div>
+                      <div class="col-md-6">
+                        <x-dashboard.input.form-select-search
+                          label="Alasan Retur"
+                          name="reasson_retur_id"
+                          :model="$reassonRetur"
+                          :selected="old('reasson_retur_id', $barangRusak->reasson_retur_id)"
+                        />
                       </div>
 
                       <button class="btn btn-success mt-4">Perbaharui</button>

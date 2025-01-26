@@ -13,6 +13,8 @@ use App\Services\{
     KategoryService,
     BarangService,
     HomeService,
+    BarangSortirService,
+    LaporanService,
 };
 use App\Services\Contract\{
     BarangRusakServiceInterface,
@@ -21,6 +23,8 @@ use App\Services\Contract\{
     UserManajementServiceInterface,
     CategoryServiceInterface,
     HomeServiceInterface,
+    BarangSortirServiceInterface,
+    LaporanServiceInterface,
 };
 
 class AppServiceProvider extends ServiceProvider
@@ -37,6 +41,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singletonIf(DataLogistikServiceInterface::class, DataLogistikService::class);
         $this->app->singletonIf(BarangRusakServiceInterface::class, BarangRusakService::class);
         $this->app->singletonIf(BarangServiceInterface::class, BarangService::class);
+        $this->app->singletonIf(BarangSortirServiceInterface::class, BarangSortirService::class);
+        $this->app->singletonIf(LaporanServiceInterface::class, LaporanService::class);
     }
 
     /**

@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class);
     }
 
+    /**
+     * Get the barang rusak associated with the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function barangRusak () : HasMany
     {
         return $this->hasMany(BarangRusak::class);

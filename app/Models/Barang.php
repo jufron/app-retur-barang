@@ -100,4 +100,14 @@ class Barang extends Model
     {
         return $this->belongsTo(Kategory::class);
     }
+
+    /**
+     * Get all of the barangSortir for the Barang
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function barangSortir(): HasMany
+    {
+        return $this->hasMany(BarangSortir::class);
+    }
 }

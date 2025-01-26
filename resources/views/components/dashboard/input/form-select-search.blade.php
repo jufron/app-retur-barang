@@ -15,10 +15,10 @@ name="reasson_retur_id"
       </option>
     @endforeach
   </select>
-  @error($name)
-    <div class="invalid-feedback">
-      {{ $message }}
-    </div>
-  @enderror
 </div>
+@error($name)
+  <div class="invalid-feedback" id="validationServer04Feedback">
+    {{ $message }}
+  </div>
+@enderror
 

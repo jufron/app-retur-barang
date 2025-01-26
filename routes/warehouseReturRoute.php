@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\WarehouseRetur\{
     BarangController,
     WarehouseReturController,
     BarangRusakController,
+    BarangSortirController,
     KategoryController,
 };
 
@@ -63,6 +64,21 @@ Route::prefix('wr')->group(function () {
             'edit'      => 'wr.barang-rusak.edit',
             'update'    => 'wr.barang-rusak.update',
             'destroy'   => 'wr.barang-rusak.destroy'
+        ]);
+
+    Route::get('barang-sortir/search', [BarangSortirController::class, 'search'])
+        ->name('wr.barang-sortir.search');
+
+    Route::resource('barang-sortir', BarangSortirController::class)
+        ->parameters(['barang-sortir'   => 'barangSortir'])
+        ->names([
+            'index'     => 'wr.barang-sortir.index',
+            'create'    => 'wr.barang-sortir.create',
+            'store'     => 'wr.barang-sortir.store',
+            'show'      => 'wr.barang-sortir.show',
+            'edit'      => 'wr.barang-sortir.edit',
+            'update'    => 'wr.barang-sortir.update',
+            'destroy'   => 'wr.barang-sortir.destroy'
         ]);
 
 });

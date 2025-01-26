@@ -17,6 +17,12 @@ use App\Services\Contract\UserManajementServiceInterface;
 
 class UserManajementService implements UserManajementServiceInterface
 {
+    /**
+     * Get users with specific role
+     *
+     * @param string $roleName
+     * @return \Illuminate\Support\Collection
+     */
     public function getUser (string $roleName) : Collection
     {
         $users = User::with([
@@ -44,6 +50,15 @@ class UserManajementService implements UserManajementServiceInterface
         return $users;
     }
 
+    /**
+     * Create a new user with role
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param string $roleName
+     * @param string $message
+     * @param string $redirectRouteName
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function createUser (Request $request, string $roleName, string $message, string $redirectRouteName) : RedirectResponse
     {
         $foto = null;
@@ -86,6 +101,12 @@ class UserManajementService implements UserManajementServiceInterface
         }
     }
 
+    /**
+     * Show user details
+     *
+     * @param \App\Models\User $user
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function showUser (User $user) : JsonResponse
     {
         $user = $user->load([
@@ -113,6 +134,12 @@ class UserManajementService implements UserManajementServiceInterface
         ], 200);
     }
 
+    /**
+     * Get user for editing
+     *
+     * @param \App\Models\User $user
+     * @return \App\Models\User
+     */
     public function edit (User $user) : User
     {
         return $user->load([
@@ -121,6 +148,15 @@ class UserManajementService implements UserManajementServiceInterface
         ]);
     }
 
+    /**
+     * Update user details
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @param string $message
+     * @param string $redirectRouteName
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function updateUser (Request $request, User $user, string $message, string $redirectRouteName) : RedirectResponse
     {
         try {
@@ -172,6 +208,14 @@ class UserManajementService implements UserManajementServiceInterface
         }
     }
 
+    /**
+     * Delete user
+     *
+     * @param \App\Models\User $user
+     * @param string $message
+     * @param string $redirectRouteName
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroyUser (User $user, string $message, string $redirectRouteName) : RedirectResponse
     {
         try {

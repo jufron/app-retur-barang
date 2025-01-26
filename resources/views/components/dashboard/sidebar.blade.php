@@ -72,27 +72,28 @@
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('admin.barang-rusak.index') }}" activeMenu="dashboard/admin/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
           <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" />
+          <x-dashboard.sidebar_menu.menu label="Laporan" href="{{ route('admin.laporan.index') }}" activeMenu="dashboard/admin/laporan*">
+            <x-slot:icon><i class="fa-solid fa-print"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
         @endhasrole
 
         {{-- * role logistik  --}}
         @hasrole('logistik')
-          <li class="sidebar-title">Data Barang</li>
+          {{-- <li class="sidebar-title">Data Barang</li> --}}
           <hr>
           <x-dashboard.sidebar_menu.menu label="Logistik" href="{{ route('logistik.data-logistik.index') }}" activeMenu="dashboard/logistik/data-logistik*">
             <x-slot:icon><i class="fa-solid fa-truck-fast"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          {{-- ? input edit ubah hapus lihat nomor, nama barang --}}
-          {{-- <x-dashboard.sidebar_menu.menu label="Nota Retur Barang" href="#" /> --}}
         @endhasrole
 
         {{-- * role warehouse asisten  --}}
         @hasrole('warehouse-asisten')
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="{{ route('wa.barang-sortir.index') }}" activeMenu="dashboard/wa/barang-sortir*">
+            <x-slot:icon><i class="fa-solid fa-list-check"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
         @endhasrole
 
         {{-- * role warehouse retur  --}}
@@ -110,11 +111,12 @@
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('wr.barang-rusak.index') }}" activeMenu="dashboard/wr/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="#" />
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="{{ route('wr.barang-sortir.index') }}" activeMenu="dashboard/wr/barang-sortir*">
+            <x-slot:icon><i class="fa-solid fa-list-check"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Laporan" href="#" />
         @endhasrole
 
         {{-- <li class="sidebar-item has-sub {{ Request::is('extra-component-*') ? 'active' : '' }}">

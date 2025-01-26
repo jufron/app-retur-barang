@@ -9,7 +9,8 @@ use App\Http\Controllers\Dashboard\AdminRetur\{
     DataLogistikController,
     BarangRusakController,
     KategoryController,
-    BarangController
+    BarangController,
+    LaporanController
 };
 
 // ? prefix dashboard/admin
@@ -114,5 +115,13 @@ Route::prefix('admin')->group( function () {
             'destroy'   => 'admin.barang-rusak.destroy'
         ]);
 
-
+    // ? laporan
+    Route::prefix('laporan')->controller(LaporanController::class)->group( function () {
+        Route::get('/', 'index')->name('admin.laporan.index');
+        Route::get('/kategory', 'kategory')->name('admin.laporan.kategory');
+        Route::post('/logistik', 'logistik')->name('admin.laporan.logistik');
+        Route::post('/barang', 'barang')->name('admin.laporan.barang');
+        Route::post('/barang-rusak', 'barangRusak')->name('admin.laporan.barang-rusak');
+        Route::post('/barang-sortir', 'barangSortir')->name('admin.laporan.barang-sortir');
+    });
 });

@@ -14,7 +14,10 @@ use App\Services\Contract\UserManajementServiceInterface;
 
 class WarehouseReturController extends Controller
 {
-    protected $userManajementService;
+    /**
+     * @var UserManajementServiceInterface
+     */
+    protected UserManajementServiceInterface $userManajementService;
 
     /**
      * Constructor for WarehouseReturController

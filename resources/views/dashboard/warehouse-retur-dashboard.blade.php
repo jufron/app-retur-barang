@@ -12,7 +12,7 @@
   <div class="page-content">
     <section class="row">
       <div class="col-12 col-lg-9">
-        <div class="row" id="dashboard" data-url="">
+        <div class="row" id="dashboard" data-url="{{ route('dashboard.warehouse-retur.fetch-data') }}">
           {{-- ? warehouse retur count --}}
           <div class="col-6 col-lg-4 col-md-6">
               <div class="card">
@@ -25,7 +25,7 @@
                           </div>
                           <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                               <h6 class="text-muted font-semibold">Warehouse Retur</h6>
-                              <h6 class="font-extrabold mb-0">14</h6>
+                              <h6 class="font-extrabold mb-0" id="warehouse-retur-count-value"></h6>
                           </div>
                       </div>
                   </div>
@@ -43,7 +43,7 @@
                           </div>
                           <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                               <h6 class="text-muted font-semibold">Total Barang Rusak</h6>
-                              <h6 class="font-extrabold mb-0">100</h6>
+                              <h6 class="font-extrabold mb-0" id="barang-rusak-count-value"></h6>
                           </div>
                       </div>
                   </div>
@@ -61,7 +61,7 @@
                           </div>
                           <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                               <h6 class="text-muted font-semibold">Total Barang Sortir</h6>
-                              <h6 class="font-extrabold mb-0">100</h6>
+                              <h6 class="font-extrabold mb-0" id="barang-sortir-count-value"></h6>
                           </div>
                       </div>
                   </div>
@@ -79,30 +79,13 @@
                           </div>
                           <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                               <h6 class="text-muted font-semibold">Kategory Barang</h6>
-                              <h6 class="font-extrabold mb-0">80</h6>
+                              <h6 class="font-extrabold mb-0" id="kategory-barang-count-value"></h6>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-          {{-- ? nota retur barang count --}}
-          <div class="col-6 col-lg-4 col-md-6">
-              <div class="card">
-                  <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                          <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
-                              <div class="stats-icon red mb-2">
-                                  <i class="fa-solid fa-cart-shopping fa-2x text-white"></i>
-                              </div>
-                          </div>
-                          <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                              <h6 class="text-muted font-semibold">Nota Retur Barang</h6>
-                              <h6 class="font-extrabold mb-0">87</h6>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
         </div>
       </div>
       <div class="col-12 col-lg-3">
@@ -134,7 +117,8 @@
 
       </div>
     </section>
-    <section class="row">
+
+    {{-- <section class="row">
       <div class="row">
           <div class="col-12">
               <div class="card">
@@ -147,7 +131,8 @@
               </div>
           </div>
       </div>
-    </section>
+    </section> --}}
+
   </div>
 
   <x-slot:scriptOptional>
@@ -158,6 +143,27 @@
     <script src="{{ asset('js/waither.js') }}"></script>
 
     <script>
+      const getURL = document.getElementById('dashboard').getAttribute('data-url');
+
+      const warehouseReturCountValue = document.getElementById('warehouse-retur-count-value');
+      const barangRusakCountValue = document.getElementById('barang-rusak-count-value');
+      const barangSortirCountValue = document.getElementById('barang-sortir-count-value');
+      const kategoryBarangCountValue = document.getElementById('kategory-barang-count-value');
+
+      fetch(getURL)
+        .then(response => response.json())
+        .then(result => {
+          const {barangRusakCount, barangSortirCount, kategoryBarangCount, warehouseReturCount} = result.data;
+
+           warehouseReturCountValue.innerHTML = warehouseReturCount;
+           barangRusakCountValue.innerHTML = barangRusakCount;
+           barangSortirCountValue.innerHTML = barangSortirCount;
+           kategoryBarangCountValue.innerHTML = kategoryBarangCount;
+
+        })
+        .catch(error => {
+          console.error(error);
+        });
 
     </script>
   </x-slot:scriptOptional>

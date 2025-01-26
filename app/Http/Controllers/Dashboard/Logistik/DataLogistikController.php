@@ -13,13 +13,16 @@ use App\Services\Contract\DataLogistikServiceInterface;
 
 class DataLogistikController extends Controller
 {
-    protected $dataLogistikService;
+    /**
+     * @var DataLogistikServiceInterface
+     */
+    protected DataLogistikServiceInterface $dataLogistikService;
 
     /**
      * Create a new controller instance.
      *
      * @param DataLogistikServiceInterface $dataLogistikService
-     */
+    */
     public function __construct(DataLogistikServiceInterface $dataLogistikService)
     {
         $this->dataLogistikService = $dataLogistikService;
@@ -37,22 +40,45 @@ class DataLogistikController extends Controller
         ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create() : View
     {
         return view('dashboard.logistik.data-logistik-manajement.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\DataLogistikRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(DataLogistikRequest $request) : RedirectResponse
     {
         $this->dataLogistikService->creaateDataLogistik($request);
         return redirect()->route('logistik.data-logistik.index');
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\DataLogistik  $dataLogistik
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function show(DataLogistik $dataLogistik) : JsonResponse
     {
         return $this->dataLogistikService->showDataLogistik($dataLogistik);
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\DataLogistik  $dataLogistik
+     * @return \Illuminate\View\View
+     */
     public function edit(DataLogistik $dataLogistik) : View
     {
         return view('dashboard.logistik.data-logistik-manajement.edit', [
@@ -60,12 +86,25 @@ class DataLogistikController extends Controller
         ]);
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\DataLogistik  $dataLogistik
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(Request $request, DataLogistik $dataLogistik) :  RedirectResponse
     {
         $this->dataLogistikService->updateDataLogistik($request, $dataLogistik);
         return redirect()->route('logistik.data-logistik.index');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\DataLogistik  $dataLogistik
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(DataLogistik $dataLogistik) : RedirectResponse
     {
         $dataLogistik->delete();

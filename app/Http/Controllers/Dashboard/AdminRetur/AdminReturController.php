@@ -12,24 +12,48 @@ use App\Services\Contract\UserManajementServiceInterface;
 
 class AdminReturController extends Controller
 {
-    protected $userManajementService;
+    /**
+     * @var UserManajementServiceInterface
+     */
+    protected UserManajementServiceInterface $userManajementService;
 
+    /**
+     * Constructor for AdminReturController
+     *
+     * @param UserManajementServiceInterface $userManajementService
+     */
     public function __construct (UserManajementServiceInterface $userManajementService)
     {
         $this->userManajementService = $userManajementService;
     }
 
+    /**
+     * Display a listing of admin retur users
+     *
+     * @return View
+     */
     public function index() : View
     {
         $users = $this->userManajementService->getUser('admin-retur');
         return view('dashboard.admin.admin-retur-manajement.index', compact('users'));
     }
 
+    /**
+     * Show the form for creating a new admin retur
+     *
+     * @return View
+     */
     public function create() : View
     {
         return view('dashboard.admin.admin-retur-manajement.create');
     }
 
+    /**
+     * Store a newly created admin retur in storage
+     *
+     * @param AdminReturRequest $request
+     * @return RedirectResponse
+     */
     public function store(AdminReturRequest $request) : RedirectResponse
     {
         return $this->userManajementService->createUser(
@@ -40,11 +64,23 @@ class AdminReturController extends Controller
         );
     }
 
+    /**
+     * Display the specified admin retur
+     *
+     * @param User $user
+     * @return JsonResponse
+     */
     public function show(User $user) : JsonResponse
     {
         return $this->userManajementService->showUser($user);
     }
 
+    /**
+     * Show the form for editing the specified admin retur
+     *
+     * @param User $user
+     * @return View
+     */
     public function edit(User $user) : View
     {
         return view('dashboard.admin.admin-retur-manajement.edit', [
@@ -52,6 +88,13 @@ class AdminReturController extends Controller
         ]);
     }
 
+    /**
+     * Update the specified admin retur in storage
+     *
+     * @param AdminReturRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function update(AdminReturRequest $request, User $user)
     {
         return $this->userManajementService->updateUser(
@@ -62,6 +105,12 @@ class AdminReturController extends Controller
         );
     }
 
+    /**
+     * Remove the specified admin retur from storage
+     *
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function destroy(User $user)
     {
         return $this->userManajementService->destroyUser(

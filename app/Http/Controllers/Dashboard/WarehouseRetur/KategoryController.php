@@ -12,8 +12,14 @@ use App\Services\Contract\CategoryServiceInterface;
 
 class KategoryController extends Controller
 {
-    protected $kategoryService;
+    /**
+    * @var CategoryServiceInterface
+    */
+    protected CategoryServiceInterface $kategoryService;
 
+    /**
+     * @var CategoryServiceInterface
+     */
     public function __construct(CategoryServiceInterface $kategoryService)
     {
         $this->kategoryService = $kategoryService;
@@ -21,6 +27,7 @@ class KategoryController extends Controller
 
     /**
      * Display a listing of the resource.
+     * @return View
      */
     public function index() : View
     {
@@ -31,6 +38,7 @@ class KategoryController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * @return View
      */
     public function create() : View
     {
@@ -39,6 +47,8 @@ class KategoryController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param KategoryRequest $request
+     * @return RedirectResponse
      */
     public function store(KategoryRequest $request) : RedirectResponse
     {
@@ -48,6 +58,8 @@ class KategoryController extends Controller
 
     /**
      * Display the specified resource.
+     * @param Kategory $kategory
+     * @return JsonResponse
      */
     public function show(Kategory $kategory) : JsonResponse
     {
@@ -56,6 +68,8 @@ class KategoryController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @param Kategory $kategory
+     * @return View
      */
     public function edit(Kategory $kategory) : View
     {
@@ -64,6 +78,9 @@ class KategoryController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * @param KategoryRequest $request
+     * @param Kategory $kategory
+     * @return RedirectResponse
      */
     public function update(KategoryRequest $request, Kategory $kategory) : RedirectResponse
     {
@@ -73,6 +90,8 @@ class KategoryController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @param Kategory $kategory
+     * @return RedirectResponse
      */
     public function destroy(Kategory $kategory) : RedirectResponse
     {

@@ -13,24 +13,48 @@ use App\Services\Contract\UserManajementServiceInterface;
 
 class LogistikController extends Controller
 {
-    protected $userManajementService;
+    /**
+     * @var UserManajementServiceInterface
+     */
+    protected UserManajementServiceInterface $userManajementService;
 
+    /**
+     * Constructor for LogistikController
+     *
+     * @param UserManajementServiceInterface $userManajementService
+     */
     public function __construct (UserManajementServiceInterface $userManajementService)
     {
         $this->userManajementService = $userManajementService;
     }
 
+    /**
+     * Display a listing of logistik users
+     *
+     * @return View
+     */
     public function index() : View
     {
         $users = $this->userManajementService->getUser('logistik');
         return view('dashboard.admin.logistik-manajement.index', compact('users'));
     }
 
+    /**
+     * Show the form for creating a new logistik user
+     *
+     * @return View
+     */
     public function create() : View
     {
         return view('dashboard.admin.logistik-manajement.create');
     }
 
+    /**
+     * Store a newly created logistik user
+     *
+     * @param AdminReturRequest $request
+     * @return RedirectResponse
+     */
     public function store(AdminReturRequest $request) : RedirectResponse
     {
         return $this->userManajementService->createUser(
@@ -41,11 +65,23 @@ class LogistikController extends Controller
         );
     }
 
+    /**
+     * Display the specified logistik user
+     *
+     * @param User $user
+     * @return JsonResponse
+     */
     public function show(User $user) : JsonResponse
     {
         return $this->userManajementService->showUser($user);
     }
 
+    /**
+     * Show the form for editing the specified logistik user
+     *
+     * @param User $user
+     * @return View
+     */
     public function edit(User $user) : View
     {
         return view('dashboard.admin.logistik-manajement.edit', [
@@ -53,6 +89,13 @@ class LogistikController extends Controller
         ]);
     }
 
+    /**
+     * Update the specified logistik user
+     *
+     * @param AdminReturRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function update(AdminReturRequest $request, User $user) : RedirectResponse
     {
         return $this->userManajementService->updateUser(
@@ -63,6 +106,12 @@ class LogistikController extends Controller
         );
     }
 
+    /**
+     * Remove the specified logistik user
+     *
+     * @param User $user
+     * @return mixed
+     */
     public function destroy(User $user)
     {
         return $this->userManajementService->destroyUser(
@@ -71,5 +120,4 @@ class LogistikController extends Controller
             redirectRouteName: 'admin.logistik-manajement.index'
         );
     }
-
 }

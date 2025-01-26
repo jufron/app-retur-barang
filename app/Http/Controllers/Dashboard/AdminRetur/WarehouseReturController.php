@@ -12,24 +12,48 @@ use App\Services\Contract\UserManajementServiceInterface;
 
 class WarehouseReturController extends Controller
 {
-    protected $userManajementService;
+    /**
+     * @var UserManajementServiceInterface
+     */
+    protected UserManajementServiceInterface $userManajementService;
 
+    /**
+     * Constructor
+     *
+     * @param UserManajementServiceInterface $userManajementService
+     */
     public function __construct (UserManajementServiceInterface $userManajementService)
     {
         $this->userManajementService = $userManajementService;
     }
 
+    /**
+     * Display a listing of warehouse retur users
+     *
+     * @return View
+     */
     public function index() : View
     {
         $users = $this->userManajementService->getUser('warehouse-retur');
         return view('dashboard.admin.warehouse-retur-manajement.index', compact('users'));
     }
 
+    /**
+     * Show the form for creating a new warehouse retur user
+     *
+     * @return View
+     */
     public function create() : View
     {
         return view('dashboard.admin.warehouse-retur-manajement.create');
     }
 
+    /**
+     * Store a newly created warehouse retur user
+     *
+     * @param AdminReturRequest $request
+     * @return RedirectResponse
+     */
     public function store(AdminReturRequest $request) : RedirectResponse
     {
         return $this->userManajementService->createUser(
@@ -40,11 +64,23 @@ class WarehouseReturController extends Controller
         );
     }
 
+    /**
+     * Display the specified warehouse retur user
+     *
+     * @param User $user
+     * @return JsonResponse
+     */
     public function show(User $user) : JsonResponse
     {
         return $this->userManajementService->showUser($user);
     }
 
+    /**
+     * Show the form for editing the specified warehouse retur user
+     *
+     * @param User $user
+     * @return View
+     */
     public function edit(User $user) : View
     {
         return view('dashboard.admin.warehouse-retur-manajement.edit', [
@@ -52,6 +88,13 @@ class WarehouseReturController extends Controller
         ]);
     }
 
+    /**
+     * Update the specified warehouse retur user
+     *
+     * @param AdminReturRequest $request
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function update(AdminReturRequest $request, User $user) : RedirectResponse
     {
         return $this->userManajementService->updateUser(
@@ -62,6 +105,12 @@ class WarehouseReturController extends Controller
         );
     }
 
+    /**
+     * Remove the specified warehouse retur user
+     *
+     * @param User $user
+     * @return RedirectResponse
+     */
     public function destroy(User $user)
     {
         return $this->userManajementService->destroyUser(

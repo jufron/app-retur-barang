@@ -13,17 +13,34 @@ use App\Services\Contract\CategoryServiceInterface;
 
 class KategoryService implements CategoryServiceInterface
 {
+    /**
+     * Get all category items ordered by latest
+     *
+     * @return \Illuminate\Support\Collection
+     */
     public function getKategoryBarang () : Collection
     {
         return Kategory::query()->latest()->get();
     }
 
+    /**
+     * Create a new category item
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return void
+     */
     public function createKategoryBarang (Request $request) : void
     {
         Kategory::create($request->all());
         notify()->success("Berhasil Menyimpan Kategory Barang");
     }
 
+    /**
+     * Show specific category item details
+     *
+     * @param \App\Models\Kategory $kategory
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function showKategoryBarang (Kategory $kategory) : JsonResponse
     {
         if (!$kategory) {
@@ -37,6 +54,13 @@ class KategoryService implements CategoryServiceInterface
         ], 200);
     }
 
+    /**
+     * Update specific category item
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Kategory $kategory
+     * @return void
+     */
     public function updateKategoryBarang (Request $request, Kategory $kategory) : void
     {
         $kategory->update($request->all());

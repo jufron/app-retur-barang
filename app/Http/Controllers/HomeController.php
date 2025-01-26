@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    /**
+     * The home service implementation.
+     *
+     * @var HomeServiceInterface
+     */
     protected HomeServiceInterface $homeService;
+
     /**
      * Create a new controller instance.
      *
+     * @param HomeServiceInterface $homeService The home service implementation
      * @return void
      */
     public function __construct(HomeServiceInterface $homeService)
@@ -61,6 +68,11 @@ class HomeController extends Controller
         }
     }
 
+    /**
+     * Get admin retur dashboard data
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function adminRetur () : JsonResponse
     {
         return response()->json([
@@ -75,11 +87,15 @@ class HomeController extends Controller
                 'barangSortirCount'         => $this->homeService->getBarangSortirCount(),
                 'barangCount'               => $this->homeService->getBarangCount(),
                 'kategoryBarangCount'       => $this->homeService->getKategoryBarangCount(),
-                'notaReturBarangCount'      => $this->homeService->getNotaReturBarangCount(),
             ]
         ], 200);
     }
 
+    /**
+     * Get logistik dashboard data
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function logistik () : JsonResponse
     {
         return response()->json([
@@ -90,6 +106,11 @@ class HomeController extends Controller
         ], 200);
     }
 
+    /**
+     * Get warehouse assistant dashboard data
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function warehouseAsistent () : JsonResponse
     {
         return response()->json([
@@ -100,6 +121,11 @@ class HomeController extends Controller
         ], 200);
     }
 
+    /**
+     * Get warehouse retur dashboard data
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function warehouseRetur () : JsonResponse
     {
         return response()->json([
