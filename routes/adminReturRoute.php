@@ -122,13 +122,12 @@ Route::prefix('admin')->group( function () {
         ->parameters(['barang-sortir'   => 'barangSortir'])
         ->names([
             'index'     => 'admin.barang-sortir.index',
-            'create'    => 'admin.barang-sortir.create',
-            'store'     => 'admin.barang-sortir.store',
             'show'      => 'admin.barang-sortir.show',
             'edit'      => 'admin.barang-sortir.edit',
             'update'    => 'admin.barang-sortir.update',
             'destroy'   => 'admin.barang-sortir.destroy'
-        ]);
+        ])
+        ->except(['create', 'store']);
 
     // ? laporan
     Route::prefix('laporan')->controller(LaporanController::class)->group( function () {

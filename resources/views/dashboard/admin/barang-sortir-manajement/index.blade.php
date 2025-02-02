@@ -20,7 +20,7 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('admin.barang-sortir.create') }}" class="btn btn-primary mb-4">Tambah Barang Sortir</a>
+                          {{-- <a href="{{ route('admin.barang-sortir.create') }}" class="btn btn-primary mb-4">Tambah Barang Sortir</a> --}}
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
