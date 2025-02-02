@@ -26,9 +26,9 @@ class DataLogistikRequest extends FormRequest
         $id = $this->route('barangSortir');
 
         return [
-            'nomor_nota_retur_barang'       => [
+            'no_nota_retur_barang'       => [
                 'required',
-                Rule::unique('barang_sortir', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
+                Rule::unique('data_logistik', 'no_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
                 'string',
                 'regex:/^[A-Z0-9]+$/',
                 'max_digits:20'
