@@ -14,7 +14,7 @@ Route::prefix('wr')->group(function () {
 
     // ? warehouse retur
     Route::resource('warehouse-retur', WarehouseReturController::class)
-        ->parameters(['warehouse-retur'   => 'warehouseRetur'])
+        ->parameters(['warehouse-retur'   => 'user'])
         ->names([
             'index'     => 'wr.warehouse-retur.index',
             'create'    => 'wr.warehouse-retur.create',

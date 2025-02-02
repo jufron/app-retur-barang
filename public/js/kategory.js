@@ -6,7 +6,7 @@ getInfo(function (data, modalBody) {
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-4 font-weight-bold">
-                        Nama Kategory Barang
+                        Nama Kategori Barang
                     </div>
                     <div class="col-md-8">
                         ${data.nama}

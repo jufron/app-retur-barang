@@ -35,6 +35,15 @@ class UserManajementService implements UserManajementServiceInterface
             ->when($roleName === 'admin-retur', function (Builder $query) {
                 $query->where('id', '!=', auth()->id());
             })
+            ->when($roleName === 'logistik', function (Builder $query) {
+                $query->where('id', '!=', auth()->id());
+            })
+            ->when($roleName === 'warehouse-asisten', function (Builder $query) {
+                $query->where('id', '!=', auth()->id());
+            })
+            ->when($roleName === 'warehouse-retur', function (Builder $query) {
+                $query->where('id', '!=', auth()->id());
+            })
             ->get()
             ->map(function($user) {
                 if (!isset($user->userProfile)) {

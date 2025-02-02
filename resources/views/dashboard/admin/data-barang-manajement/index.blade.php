@@ -27,7 +27,7 @@
                                       <tr>
                                           <th>Barcode</th>
                                           <th>Nama Barang</th>
-                                          <th>Kategory</th>
+                                          <th>Kategori</th>
                                           <th>Deskripsi</th>
                                           <th>Tanggal Buat</th>
                                           <th>Tanggal Perbaharui</th>
@@ -73,7 +73,7 @@
 
                         <x-dashboard.modal.moda-borderles
                           id="show-modal"
-                          title="Info Kategory Barang"
+                          title="Info Kategori Barang"
                           size="medium"
                           >
                           <div class="modal-body" id="modal-body-information">

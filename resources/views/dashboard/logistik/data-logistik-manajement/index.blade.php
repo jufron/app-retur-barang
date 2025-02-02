@@ -20,7 +20,7 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('logistik.data-logistik.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
+                          <a href="{{ route('logistik.data-logistik.create') }}" class="btn btn-primary mb-4">Tambah Data Logistik</a>
 
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">

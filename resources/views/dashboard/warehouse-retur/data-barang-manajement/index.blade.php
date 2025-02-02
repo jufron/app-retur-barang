@@ -20,14 +20,14 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('wr.barang.create') }}" class="btn btn-primary mb-4">Tambah Barang Retur</a>
+                          <a href="{{ route('wr.barang.create') }}" class="btn btn-primary mb-4">Tambah Barang Baru</a>
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
                                           <th>Barcode</th>
                                           <th>Nama Barang</th>
-                                          <th>Kategory</th>
+                                          <th>Kategori</th>
                                           <th>Deskripsi</th>
                                           <th>Tanggal Buat</th>
                                           <th>Tanggal Perbaharui</th>
@@ -73,7 +73,7 @@
 
                         <x-dashboard.modal.moda-borderles
                           id="show-modal"
-                          title="Info Kategory Barang"
+                          title="Info Kategori Barang"
                           size="medium"
                           >
                           <div class="modal-body" id="modal-body-information">

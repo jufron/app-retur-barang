@@ -1,4 +1,4 @@
-<x-dashboard.app title="Daftar Kategory Barang">
+<x-dashboard.app title="Daftar Kategori Barang">
   <x-slot:styleOptional>
     {{-- ? style sweatalert2 --}}
     <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.css') }}">
@@ -7,7 +7,7 @@
 
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Kategory Barang Manajement</h3>
+          <h3 class="my-2">Kategori Barang Manajement</h3>
       </div>
   </x-slot:header>
 
@@ -20,12 +20,12 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('wr.kategory-barang.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
+                          <a href="{{ route('wr.kategory-barang.create') }}" class="btn btn-primary mb-4">Tambah Kategori Barang</a>
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
-                                          <th>Nama Kategory</th>
+                                          <th>Nama Kategori</th>
                                           <th>Tanggal Buat</th>
                                           <th>Tanggal Perbaharui</th>
                                           <th>Aksi</th>
@@ -60,7 +60,7 @@
 
                         <x-dashboard.modal.moda-borderles
                           id="show-modal"
-                          title="Info Kategory Barang"
+                          title="Info Kategori Barang"
                           size="medium"
                           >
                           <div class="modal-body" id="modal-body-information">

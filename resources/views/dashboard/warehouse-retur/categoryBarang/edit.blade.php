@@ -1,7 +1,7 @@
 .<x-dashboard.app title="Ubah Kategory Barang">
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Ubah Kategory Barang</h3>
+          <h3 class="my-2">Ubah Kategori Barang</h3>
       </div>
   </x-slot:header>
 
@@ -20,7 +20,7 @@
                         <div class="row">
                           <div class="col-sm-4">
                             <x-dashboard.input.form-input
-                              label="Nama Kategory Barang"
+                              label="Nama Kategori Barang"
                               name="name"
                               placeholder="Masukan Nama Kategry Barang..."
                               value="{{ old('name', $kategory->name) }}"

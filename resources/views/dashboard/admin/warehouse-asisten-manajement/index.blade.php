@@ -7,7 +7,7 @@
 
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Warehouse Asistent Manajement</h3>
+          <h3 class="my-2">Warehouse Asistent Manajemen</h3>
       </div>
   </x-slot:header>
 
@@ -20,7 +20,7 @@
                   </div>
                   <div class="card-content">
                       <div class="card-body">
-                          <a href="{{ route('admin.warehouse-asistent.create') }}" class="btn btn-primary mb-4">Tambah Admin Retur</a>
+                          <a href="{{ route('admin.warehouse-asistent.create') }}" class="btn btn-primary mb-4">Tambah Warehouse Asisten</a>
 
                           <div class="table-responsive">
                               <table class="table table-hover mb-0 table-striped">

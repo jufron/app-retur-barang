@@ -1,7 +1,7 @@
-.<x-dashboard.app title="Ubah Kategory Barang">
+.<x-dashboard.app title="Ubah Kategori Barang">
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Ubah Kategory Barang</h3>
+          <h3 class="my-2">Ubah Kategori Barang</h3>
       </div>
   </x-slot:header>
 
@@ -14,13 +14,13 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                      <form action="{{ route('admin.category-barang.update', $kategory) }}" method="post" enctype="multipart/form-data">
+                      <form action="{{ route('admin.category-barang.update', $kategori) }}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                         <div class="row">
                           <div class="col-sm-4">
                             <x-dashboard.input.form-input
-                              label="Nama Kategory Barang"
+                              label="Nama Kategori Barang"
                               name="name"
                               placeholder="Masukan Nama Barang..."
                               value="{{ old('name', $kategory->name) }}"

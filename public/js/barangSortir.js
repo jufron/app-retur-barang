@@ -22,7 +22,7 @@ getInfo(function (data, modalBody) {
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-3 font-weight-bold">
-                        Kategory
+                        Kategori
                     </div>
                     <div class="col-md-3">
                         ${data.kategory_barang}

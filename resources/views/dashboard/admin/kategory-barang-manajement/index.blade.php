@@ -1,4 +1,4 @@
-<x-dashboard.app title="Daftar Kategory Barang">
+<x-dashboard.app title="Daftar Kategori Barang">
   <x-slot:styleOptional>
     {{-- ? style sweatalert2 --}}
     <link rel="stylesheet" href="{{ asset('mazer/assets/extensions/sweetalert2/sweetalert2.min.css') }}">
@@ -7,7 +7,7 @@
 
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Kategory Barang Manajement</h3>
+          <h3 class="my-2">Kategori Barang Manajement</h3>
       </div>
   </x-slot:header>
 
@@ -16,7 +16,7 @@
           <div class="col-12">
               <div class="card">
                   <div class="card-header">
-                      <h4 class="card-title">List Kategory Barang</h4>
+                      <h4 class="card-title">List Kategori Barang</h4>
                   </div>
                   <div class="card-content">
                       <div class="card-body">

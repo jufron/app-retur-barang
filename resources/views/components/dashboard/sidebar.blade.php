@@ -72,7 +72,7 @@
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('admin.barang-rusak.index') }}" activeMenu="dashboard/admin/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/kategory*">
+          <x-dashboard.sidebar_menu.menu label="Kategori Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Laporan" href="{{ route('admin.laporan.index') }}" activeMenu="dashboard/admin/laporan*">
@@ -114,7 +114,7 @@
           <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="{{ route('wr.barang-sortir.index') }}" activeMenu="dashboard/wr/barang-sortir*">
             <x-slot:icon><i class="fa-solid fa-list-check"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
-          <x-dashboard.sidebar_menu.menu label="Kategory Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory*">
+          <x-dashboard.sidebar_menu.menu label="Kategori Barang" href="{{ route('wr.kategory-barang.index') }}" activeMenu="dashboard/wr/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
         @endhasrole

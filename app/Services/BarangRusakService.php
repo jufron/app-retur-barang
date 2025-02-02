@@ -85,12 +85,13 @@ class BarangRusakService implements BarangRusakServiceInterface
             return response()->json(null, 404);
         }
 
-        $barangRusak->load(['reassonRetur', 'user', 'barang']);
+        $barangRusak->load(['reassonRetur', 'user', 'barang', 'barang.kategory:id,name']);
 
         return response()->json([
             'nama_barang'               => $barangRusak->barang->nama_barang,
             'kategory_barang'           => $barangRusak->barang->kategory->name,
             'barcode'                   => $barangRusak->barang->kode_barcode,
+            'kategory'                  => $barangRusak->barang->kategory->name,
             'nomor_nota_retur_barang'   => $barangRusak->nomor_nota_retur_barang,
             'quantity_pcs'              => $barangRusak->quantity_pcs_format,
             'quantity_carton'           => $barangRusak->quantity_carton_format,

@@ -109,7 +109,7 @@
                         </div>
                         @enderror
 
-                        <button class="btn btn-success mt-4">Simpan</button>
+                        <button class="btn btn-success mt-4">Perbaharui</button>
                       </form>
                     </div>
                 </div>

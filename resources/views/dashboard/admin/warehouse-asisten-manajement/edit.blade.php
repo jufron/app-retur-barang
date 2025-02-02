@@ -1,7 +1,7 @@
 .<x-dashboard.app title="Ubah Warehouse Asistent">
   <x-slot:header>
       <div class="page-heading">
-          <h3 class="my-2">Ubah Warehouse Asistent</h3>
+          <h3 class="my-2">Ubah Warehouse Asisten</h3>
       </div>
   </x-slot:header>
 
