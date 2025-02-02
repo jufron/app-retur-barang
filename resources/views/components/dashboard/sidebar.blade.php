@@ -72,6 +72,9 @@
           <x-dashboard.sidebar_menu.menu label="Barang Rusak" href="{{ route('admin.barang-rusak.index') }}" activeMenu="dashboard/admin/barang-rusak*">
             <x-slot:icon><i class="fa-solid fa-boxes-stacked"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>
+          <x-dashboard.sidebar_menu.menu label="Barang Sortir" href="{{ route('admin.barang-sortir.index') }}" activeMenu="dashboard/admin/barang-sortir*">
+            <x-slot:icon><i class="fa-solid fa-list-check"></i></x-slot:icon>
+          </x-dashboard.sidebar_menu.menu>
           <x-dashboard.sidebar_menu.menu label="Kategori Barang" href="{{ route('admin.category-barang.index') }}" activeMenu="dashboard/admin/kategory*">
             <x-slot:icon><i class="fa-solid fa-list"></i></x-slot:icon>
           </x-dashboard.sidebar_menu.menu>

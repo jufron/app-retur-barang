@@ -10,7 +10,8 @@ use App\Http\Controllers\Dashboard\AdminRetur\{
     BarangRusakController,
     KategoryController,
     BarangController,
-    LaporanController
+    LaporanController,
+    BarangSortirController,
 };
 
 // ? prefix dashboard/admin
@@ -102,7 +103,7 @@ Route::prefix('admin')->group( function () {
 
     // ? barang rusak
     Route::get('barang-rusak/search', [BarangRusakController::class, 'search'])
-    ->name('admin.barang-rusak.search');
+        ->name('admin.barang-rusak.search');
 
     Route::resource('barang-rusak', BarangRusakController::class)
         ->parameters(['barang-rusak'   => 'barangRusak'])
@@ -113,6 +114,20 @@ Route::prefix('admin')->group( function () {
             'edit'      => 'admin.barang-rusak.edit',
             'update'    => 'admin.barang-rusak.update',
             'destroy'   => 'admin.barang-rusak.destroy'
+        ]);
+    // ? barang sortir
+    Route::get('barang-sortir/search', [BarangSortirController::class, 'search'])
+        ->name('admin.barang-sortir.search');
+    Route::resource('barang-sortir', BarangSortirController::class)
+        ->parameters(['barang-sortir'   => 'barangSortir'])
+        ->names([
+            'index'     => 'admin.barang-sortir.index',
+            'create'    => 'admin.barang-sortir.create',
+            'store'     => 'admin.barang-sortir.store',
+            'show'      => 'admin.barang-sortir.show',
+            'edit'      => 'admin.barang-sortir.edit',
+            'update'    => 'admin.barang-sortir.update',
+            'destroy'   => 'admin.barang-sortir.destroy'
         ]);
 
     // ? laporan
