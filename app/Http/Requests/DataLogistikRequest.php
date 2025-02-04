@@ -31,7 +31,7 @@ class DataLogistikRequest extends FormRequest
                 Rule::unique('data_logistik', 'no_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
                 'string',
                 'regex:/^[A-Z0-9]+$/',
-                'max_digits:20'
+                'digits_between:8,16',
             ],
             'tanggal'               => ['required', 'date'],
             'nama_toko'             => ['required', 'string', 'min:1', 'max:200'],
