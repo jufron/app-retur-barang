@@ -22,7 +22,7 @@ class BarangRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'kode_barcode'                  => ['required', 'string', 'max:20'],
+            'kode_barcode'                  => ['required', 'string', 'digits_between:13,13'],
             'nama_barang'                   => ['required', 'string', 'max:200'],
             'kategory_id'                   => ['required', 'string', 'exists:kategory,id'],
             'deskripsi_barang'              => ['required', 'string'],
