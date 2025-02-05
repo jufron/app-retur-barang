@@ -47,8 +47,12 @@ class Barang extends Model
                 // Mengambil nilai barcode dari atribut
                 $barcode = $this->getAttribute('kode_barcode');
 
-                 // Menghitung panjang barcode
+                // Menghitung panjang barcode
                 $length = strlen($barcode);
+
+                if ($length < 12) {
+                    return " <span class='text-danger'>Kode Barcode harus 13 digit</span>";
+                }
 
                 // Menentukan tipe barcode berdasarkan panjang
                 $barcodeType = 'EAN13';
