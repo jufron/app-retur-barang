@@ -44,31 +44,30 @@ class Barang extends Model
     {
         return Attribute::make(
             get: function () {
-                // Mengambil nilai barcode dari atribut
-                $barcode = $this->getAttribute('kode_barcode');
+                // Mengambil dan membersihkan nilai barcode dari atribut
+                $barcode = trim($this->getAttribute('kode_barcode')); // Hapus spasi depan/belakang
+                $barcode = preg_replace('/\D/', '', $barcode); // Hapus karakter non-digit
 
-                // Menghitung panjang barcode
+                // Pastikan barcode memiliki panjang yang valid
                 $length = strlen($barcode);
-
-                if ($length < 12) {
-                    return " <span class='text-danger'>Kode Barcode harus 13 digit</span>";
+                if (!in_array($length, [8, 12, 13])) {
+                    return "<span class='text-danger'>Kode Barcode harus 8, 12, atau 13 digit</span>";
                 }
 
-                // Menentukan tipe barcode berdasarkan panjang
-                $barcodeType = 'EAN13';
+                // Menentukan tipe barcode berdasarkan panjangnya
+                $barcodeType = match ($length) {
+                    8   => 'EAN8',
+                    12  => 'UPCA',
+                    13  => 'EAN13',
+                    default => 'EAN13',
+                };
 
-                if ($length == 13 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'EAN13';
-                } elseif ($length == 8 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'EAN8';
-                } elseif ($length == 12 && preg_match('/^\d+$/', $barcode)) {
-                    $barcodeType = 'UPCA';
-                } elseif ($length > 13 && preg_match('/^[a-zA-Z0-9]+$/', $barcode)) {
-                    $barcodeType = 'C128';
+                try {
+                    $barcodeGenerator = new DNS1D();
+                    return $barcodeGenerator->getBarcodeHTML($barcode, $barcodeType);
+                } catch (\Exception $e) {
+                    return "<span class='text-danger'>Gagal generate barcode: " . htmlspecialchars($e->getMessage()) . "</span>";
                 }
-
-                $barcodeGenerator = new DNS1D();
-                return $barcodeGenerator->getBarcodeHTML($barcode, $barcodeType);
             }
         );
     }

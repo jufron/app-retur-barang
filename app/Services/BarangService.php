@@ -13,17 +13,19 @@ class BarangService implements BarangServiceInterface
 {
     /**
      * Get all barang with their categories
-     * 
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getBarang () : Collection
     {
-        return Barang::with(['kategory'])->latest()->get();
+        return Barang::with(['kategory'])
+        ->latest()
+        ->get();
     }
 
     /**
      * Get categories for barang creation form
-     * 
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getKategory () : Collection
@@ -33,7 +35,7 @@ class BarangService implements BarangServiceInterface
 
     /**
      * Store a new barang
-     * 
+     *
      * @param \Illuminate\Http\Client\Request $request
      * @return void
      */
@@ -45,7 +47,7 @@ class BarangService implements BarangServiceInterface
 
     /**
      * Get details of specific barang
-     * 
+     *
      * @param \App\Models\Barang $barang
      * @return \Illuminate\Http\JsonResponse
      */
@@ -69,7 +71,7 @@ class BarangService implements BarangServiceInterface
 
     /**
      * Update existing barang
-     * 
+     *
      * @param \Illuminate\Http\Client\Request $request
      * @param \App\Models\Barang $barang
      * @return void

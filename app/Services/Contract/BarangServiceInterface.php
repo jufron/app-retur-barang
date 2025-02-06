@@ -11,21 +11,21 @@ interface BarangServiceInterface
 {
     /**
      * Get all barang data
-     * 
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getBarang() : Collection;
-    
+
     /**
      * CGet all kategory form
-     * 
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getKategory () : Collection;
 
     /**
      * Store new barang data
-     * 
+     *
      * @param \Illuminate\Http\Client\Request $request
      * @return void
      */
@@ -33,7 +33,7 @@ interface BarangServiceInterface
 
     /**
      * Show specific barang data
-     * 
+     *
      * @param \App\Models\Barang $barang
      * @return \Illuminate\Http\JsonResponse
      */
@@ -41,7 +41,7 @@ interface BarangServiceInterface
 
     /**
      * Update barang data
-     * 
+     *
      * @param \Illuminate\Http\Client\Request $request
      * @param \App\Models\Barang $barang
      * @return void

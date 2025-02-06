@@ -23,15 +23,15 @@ class BarangRusakRequest extends FormRequest
     public function rules(): array
     {
         // Ambil parameter ID dari route (sesuai nama parameter di route)
-        $id = $this->route('barangSortir');
+        $id = $this->route('barangRusak');
 
         return [
             'nomor_nota_retur_barang'       => [
                 'required',
-                Rule::unique('barang_sortir', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
-                'string',
+                Rule::unique('barang_rusak', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
                 'regex:/^[A-Z0-9]+$/',
-                'max_digits:20'
+                'min:8',
+                'max:20'
             ],
             'quantity_pcs'                  => ['required', 'numeric', 'min:0', 'max:999999'],
             'quantity_carton'               => ['required', 'numeric', 'min:0', 'max:999999'],

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\WarehouseRetur;
 
 use App\Models\Barang;
+use Milon\Barcode\DNS1D;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;

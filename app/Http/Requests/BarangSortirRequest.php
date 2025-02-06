@@ -31,7 +31,8 @@ class BarangSortirRequest extends FormRequest
                 Rule::unique('barang_sortir', 'nomor_nota_retur_barang')->ignore($id), // Abaikan ID jika sedang update
                 'string',
                 'regex:/^[A-Z0-9]+$/',
-                'max_digits:20'
+                'min:8',
+                'max:20'
             ],
             'barang_id'                     => ['required', 'integer', 'exists:barang,id'],
             'quantity_pcs'                  => ['required', 'numeric', 'min:0', 'max:999999'],
