@@ -36,8 +36,8 @@ class DataLogistikRequest extends FormRequest
             ],
             'tanggal'               => ['required', 'date'],
             'nama_toko'             => ['required', 'string', 'min:1', 'max:200'],
-            'total_harga'           => ['required', 'numeric', 'min_digits:1', 'max_digits:20'],
-            'jumlah_barang'         => ['required', 'integer', 'min_digits:1', 'max_digits:20']
+            'total_harga'           => ['required', 'string', 'min:1', 'max:20'],
+            'jumlah_barang'         => ['required', 'string', 'min:1', 'max:20']
         ];
     }
 }
