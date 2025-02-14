@@ -6,6 +6,16 @@ getInfo(function (data, modalBody) {
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-md-4 font-weight-bold">
+                        Penginput
+                    </div>
+                    <div class="col-md-8">
+                        ${data.penginput}
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4 font-weight-bold">
                         Tanggal
                     </div>
                     <div class="col-md-8">

@@ -73,7 +73,8 @@ class LaporanService implements LaporanServiceInterface {
         $tahun = $request->input('tahun'); // Tahun (4 digit)
 
         // Filter data berdasarkan bulan dan tahun
-        $data = DataLogistik::whereYear('created_at', $tahun)
+        $data = DataLogistik::with('user')
+                            ->whereYear('created_at', $tahun)
                             ->whereMonth('created_at', $bulan)
                             ->latest()
                             ->get();
@@ -87,11 +88,12 @@ class LaporanService implements LaporanServiceInterface {
         $csv = Writer::createFromString('');
 
         // Menambahkan header ke CSV (opsional)
-        $csv->insertOne(['Tanggal', 'Nota Retur Barang', 'Nama Toko', 'Total Harga', 'Jumlah Barang', 'Dibuat Pada']);
+        $csv->insertOne(['Penginput', 'Tanggal', 'Nota Retur Barang', 'Nama Toko', 'Total Harga', 'Jumlah Barang', 'Dibuat Pada']);
 
         $csv->insertAll(
             $data->map(function ($item) {
                 return [
+                    $item->user->name,
                     $item->tanggal_format,
                     $item->no_nota_retur_barang,
                     $item->nama_toko,

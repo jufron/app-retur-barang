@@ -14,18 +14,14 @@ use App\Services\Contract\DataLogistikServiceInterface;
 class DataLogistikController extends Controller
 {
     /**
-     * @var DataLogistikServiceInterface
-     */
-    protected DataLogistikServiceInterface $dataLogistikService;
-
-    /**
      * Create a new controller instance.
      *
      * @param DataLogistikServiceInterface $dataLogistikService
     */
-    public function __construct(DataLogistikServiceInterface $dataLogistikService)
+    public function __construct(
+        protected DataLogistikServiceInterface $dataLogistikService)
     {
-        $this->dataLogistikService = $dataLogistikService;
+
     }
 
     /**

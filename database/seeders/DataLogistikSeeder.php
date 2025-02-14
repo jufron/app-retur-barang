@@ -13,6 +13,6 @@ class DataLogistikSeeder extends Seeder
      */
     public function run(): void
     {
-        DataLogistik::factory()->count(10)->create();
+        DataLogistik::factory()->count(5)->create();
     }
 }

@@ -72,4 +72,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(BarangRusak::class);
     }
+
+    /**
+     * Get all of the dataLogistik for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function dataLogistik(): HasMany
+    {
+        return $this->hasMany(DataLogistik::class);
+    }
 }

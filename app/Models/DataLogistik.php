@@ -6,6 +6,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use App\DateFormatCreatedAttAndUpdatedAt;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class DataLogistik extends Model
@@ -15,11 +16,12 @@ class DataLogistik extends Model
     protected $table = 'data_logistik';
 
     protected $fillable = [
+        'user_id',
         'tanggal',
         'no_nota_retur_barang',
         'nama_toko',
         'total_harga',
-        'jumlah_barang'
+        'jumlah_barang',
     ];
 
     protected function tanggalFormat(): Attribute
@@ -43,4 +45,11 @@ class DataLogistik extends Model
         );
     }
 
+    /**
+    * Get the user that owns the data logistik.
+    */
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -12,18 +12,14 @@ use App\Services\Contract\LaporanServiceInterface;
 class LaporanController extends Controller
 {
     /**
-     * @var LaporanServiceInterface
-     */
-    protected LaporanServiceInterface $laporanService;
-
-    /**
      * Create a new LaporanController instance.
      *
      * @param LaporanServiceInterface $laporanService
      */
-    public function __construct(LaporanServiceInterface $laporanService)
+    public function __construct(
+        protected LaporanServiceInterface $laporanService)
     {
-        $this->laporanService = $laporanService;
+        
     }
 
     /**

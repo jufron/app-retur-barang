@@ -3,7 +3,6 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Str;
 use App\Models\DataLogistik;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -19,7 +18,7 @@ class DataLogistikService implements DataLogistikServiceInterface
      */
     public function getDataLogistik () : Collection
     {
-        return DataLogistik::query()->latest()->get();
+        return DataLogistik::with('user')->latest()->get();
     }
 
     /**
@@ -30,6 +29,7 @@ class DataLogistikService implements DataLogistikServiceInterface
      */
     public function creaateDataLogistik (Request $request) : void
     {
+        $request->merge(['user_id' => auth()->user()->id]);
         DataLogistik::create($request->all());
         notify()->success("Berhasil menambahkan data logistik");
     }
@@ -47,11 +47,12 @@ class DataLogistikService implements DataLogistikServiceInterface
         }
 
         return response()->json([
+            'penginput'                     => $dataLogistik->user->name,
             'tanggal'                       => $dataLogistik->tanggal_format,
             'no_nota_retur_barang'          => $dataLogistik->no_nota_retur_barang,
             'nama_toko'                     => $dataLogistik->nama_toko,
-            'total_harga'                   => $dataLogistik->total_harga_format,
-            'jumlah_barang'                 => $dataLogistik->jumlah_barang_format,
+            'total_harga'                   => $dataLogistik->total_harga,
+            'jumlah_barang'                 => $dataLogistik->jumlah_barang,
             'created_at'                    => $dataLogistik->created_at,
             'updated_at'                    => $dataLogistik->updated_at
         ], 200);
@@ -66,6 +67,7 @@ class DataLogistikService implements DataLogistikServiceInterface
      */
     public function updateDataLogistik (Request $request, DataLogistik $dataLogistik) : void
     {
+        $request->merge(['user_id' => auth()->user()->id]);
         $dataLogistik->update($request->all());
         notify()->success("Berhasil mengubah data logistik");
     }

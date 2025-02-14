@@ -26,6 +26,7 @@
                               <table class="table table-hover mb-0 table-striped">
                                   <thead>
                                       <tr>
+                                          <th>Penginput</th>
                                           <th>Tanggal</th>
                                           <th>No Nota Retur Barang</th>
                                           <th>Nama Toko</th>
@@ -38,11 +39,12 @@
                                   <tbody>
                                     @foreach ($dataLogistik as $lo)
                                       <tr>
+                                          <td>{{ $lo->user->name }}</td>
                                           <td>{{ $lo->tanggal_format }}</td>
                                           <td>{{ $lo->no_nota_retur_barang }}</td>
                                           <td>{{ $lo->nama_toko }}</td>
-                                          <td>{{ $lo->total_harga_format }}</td>
-                                          <td>{{ $lo->jumlah_barang_format }}</td>
+                                          <td>{{ $lo->total_harga }}</td>
+                                          <td>{{ $lo->jumlah_barang }}</td>
                                           <td>{{ $lo->updated_at }}</td>
                                           <td>
                                             <form id="form-delete" action="{{ route('logistik.data-logistik.destroy', $lo) }}" method="post">
